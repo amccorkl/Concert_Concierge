@@ -1,0 +1,3 @@
+const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
+const customerSecretTM = "zEEx50TuLn49BCOR"
+const oAuthTM = "https://oauth.ticketmaster.com/oauth/login"
