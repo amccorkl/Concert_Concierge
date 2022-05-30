@@ -1,11 +1,3 @@
-//search for events
-let testCity = "Denver";
-let cityName = "";
-let eventType = "music";
-let eventTypeArr = ["Sports", "Music", "Arts & Theater", "Film", "Miscellaneous"];
-const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
-
-
 const ticketmasterEl = document.getElementById("ticketmaster");
 //search for events
 let testCity = "Denver";
