@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <title>Learning Materialize</title>
+</head>
+<body>
+
+  <div class="navbar-fixed">
+      <!-- basic nav bar -->
+    <nav class="nav-wrapper indigo">
+      <div class="container">
+        <a href="#" class="brand-logo">Site Title</a>
+        <!--  -->
+        <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <!-- creates the hamburger nav stack -->
+          <i class="material-icons">menu</i>
+        </a>
+        <!-- moves the links to the right hand side of nav/ second half hides it until the browser gets smaller-->
+        <ul class="right hide-on-med-and-down">
+          <li><a href="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+          <!-- creates a button for the login -->
+          <li><a href="" class="btn white indigo-text">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<!-- this will only show on mobile and responds with the "data-target" above on line 20 -->
+  <ul class="sidenav" id="mobile-links">
+    <li><a href="">Home</a></li>
+    <li><a href="">About</a></li>
+    <li><a href="">Contact</a></li>
+  </ul>
+  
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script>
+    //   inorder to make the hamburger nav work, have to write this JS code with jquery//
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+  </script>
+</body>
+</html>

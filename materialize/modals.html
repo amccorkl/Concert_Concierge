@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <title>Learning Materialize</title>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Modals</h2>
+
+    <a class="btn orange modal-trigger" href="#terms">Terms & Conditions</a>
+
+    <div id="terms" class="modal">
+        <!-- gives the modal text--just like the cards -->
+      <div class="modal-content">
+        <h4>Terms & Conditions</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae finibus mi, egestas dignissim metus. Fusce tempus elementum metus. Donec eu nibh fringilla, dignissim arcu eu, ultrices ante. Cras consectetur risus id mi condimentum aliquam.</p>
+      </div>
+      <!-- gives the modal the button at the bottom -->
+      <div class="modal-footer">
+          <!-- modal-close, closes the modal -->
+        <a href="#!" class="modal-close btn orange">Agree</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script>
+      //JS and Jquery code to make the modal function when the button is clicked
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+  </script>
+</body>
+</html>
