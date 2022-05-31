@@ -1,4 +1,4 @@
-const ticketmasterEl = document.getElementById("ticketmaster");
+const ticketmasterEl = document.getElementById("ticketmaster-results");
 //search for events
 let testCity = "Denver";
 let cityName = "";
@@ -12,9 +12,9 @@ const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
 function userChoices() {
     //the "events" parameter allows for a search by location, date, availability" not sure if we should include a calendar before asking for the user to input a city name
 
-    cityName = cityName.trim();
+    let cityInput = cityName.trim();
     
-    let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${testCity}&size=5&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
+    let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&size=5&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
 
     fetch(ticketMasterRequestUrl)
         .then(function (response) {
@@ -67,10 +67,10 @@ function userChoices() {
                 
             }
         })
-        .catch((error) => {
-            console.log(error);
-            alert("Please check your city spelling");
-        });
+        // .catch((error) => {
+        //     console.log(error);
+        //     alert("Please check your city spelling");
+        // });
 }
 
 userChoices();
