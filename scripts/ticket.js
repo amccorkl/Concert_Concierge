@@ -1,6 +1,6 @@
 const ticketmasterEl = document.getElementById("ticketmaster-search");
 let searchForm = document.getElementById("city-search-form");
-let citySearchBtn = document.getElementById("city-search-btn");
+let citySearchBtn = document.getElementById("city-submit-btn");
 //search for events
 let testCity = "Denver";
 let cityName = document.getElementById("city-name");
@@ -11,22 +11,6 @@ let segmentClassification = document.getElementById("submit-btn");
 
 const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
 
-// //pull info from the form
-// function handleSearchForm(event) {
-//     event.preventDefault();
-//     let citySearchInput = document.getElementById("city-name").value;
-
-//     if(!citySearchInput){
-//         alert("Please enter a city name");
-//         return;
-//     }
-
-//     let cityName = localStorage.setItem("cityName", citySearchInput);
-//     console.log(cityName);
-
-//     ticketMasterSearch();
-// }
-// citySearchBtn.addEventListener("click", handleSearchForm);
 
 //creates the buttons for the classifications search
 var activityList = ["Music", "Sports", "Film"];
@@ -42,17 +26,27 @@ activityList.forEach(function(activity) {
 })
 
 
-let ticketMasterSearch = function (cityName, date) {
-//let ticketMasterSearch = function handleFormSubmit(cityInput, dateInput, segClassificationInput ) {}
+let ticketMasterSearch = function (event) {
+    event.preventDefault();
+    console.log(event);
     
-    // let cityInput = cityName.value;
-    // let dateInput = date.value;
+    let cityInput = cityName.value;
+    console.log(cityInput);
+    cityName.value = "";
+
+    let dateInput = date.value;
+    //use moment to reformat
+    let dateInputFormat = moment(dateInput, "MMMM Do, YYYY").format("YYYY-MMMM-Do")
+    // eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
+    console.log(dateInput);
+    date.value = "";
     // let segClassificationInput = segmentClassification.value; 
     
     
-    let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${testCity}&classificationName=${eventClassification}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
+    let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
     // &size=5& // 
     //&classificationName${Music...} 
+    //&startDateTime=${dateInput}
 
     
     fetch(ticketMasterRequestUrl)
@@ -136,11 +130,8 @@ let ticketMasterSearch = function (cityName, date) {
         // });
 }
 
-ticketMasterSearch();
-//open new window to show events 
-// ticketMaster.addEventListener("click", {
-//     window.open("url...", windowFeatures )
-// });
+citySearchBtn.addEventListener("click", ticketMasterSearch);
+
 
 
 $(document).ready(function () {
