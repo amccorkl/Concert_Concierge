@@ -1,25 +1,52 @@
 const ticketmasterEl = document.getElementById("ticketmaster-search");
+let searchForm = document.getElementById("city-search-form");
+let citySearchBtn = document.getElementById("city-submit-btn");
 //search for events
 let testCity = "Denver";
 let cityName = document.getElementById("city-name");
-let musicChoice = document.getElementById("band-name");
-
-//can't get the event genre to work yet
+let date = document.getElementById("date");
+//event genre 
 let eventClassification = "Music";
-let eventTypeArr = ["Sports", "Music", "Arts & Theater", "Film", "Miscellaneous"];
+let segmentClassification = document.getElementById("submit-btn");
+
 const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
 
 
-let ticketMasterSearch = function userChoices() {
-    
-    //the "events" parameter allows for a search by location, date, availability" not sure if we should include a calendar before asking for the user to input a city name
+//creates the buttons for the classifications search
+var activityList = ["Music", "Sports", "Film"];
+var activityBox = document.getElementById("activity-btns");
+activityList.forEach(function(activity) {
+    var btn = document.createElement('button');
+    btn.textContent = activity;
+    btn.setAttribute("value", activity);
+    btn.onclick=function() {
+        console.log(this.value);
+    }
+    document.getElementById("activity-btns").append(btn);
+})
 
-    let cityInput = cityName.value;
-    // let bandInput = musicChoice.value;
+
+let ticketMasterSearch = function (event) {
+    event.preventDefault();
+    console.log(event);
     
-    let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${testCity}&keyword=${eventClassification}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
-    // &size=5
-    //${segmentName} - eventTypeArr
+    let cityInput = cityName.value;
+    console.log(cityInput);
+    cityName.value = "";
+
+    let dateInput = date.value;
+    //use moment to reformat
+    let dateInputFormat = moment(dateInput, "MMMM Do, YYYY").format("YYYY-MMMM-Do")
+    // eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
+    console.log(dateInput);
+    date.value = "";
+    // let segClassificationInput = segmentClassification.value; 
+    
+    
+    let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
+    // &size=5& // 
+    //&classificationName${Music...} 
+    //&startDateTime=${dateInput}
 
     
     fetch(ticketMasterRequestUrl)
@@ -28,8 +55,7 @@ let ticketMasterSearch = function userChoices() {
         })
         .then(function(data) {
             console.log(data);
-            
-
+    
             //shorted variable for the info so I don't have to type it all out every time
             let eventList = data._embedded.events;
 
@@ -42,20 +68,14 @@ let ticketMasterSearch = function userChoices() {
                 let eventTime = event.dates.start.localTime;
                 eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
                 //type of event
-                // let segmentName = event.classifications[0].segment.name;
-                let descript = event.desription;
+                let segmentName = event.classifications[0].segment.name;
+                let descript = event.description;
                 let eventImages = event.images[0].url; 
-                let eventUrl = event.url; //doesn't link yet
-                let eventVenue = event._embedded.venues[0].name;
-
-                // if we want user to choose what type of event to look for   
-                // let genreOfEvent = event.classifications.segment.genre;
+                let eventUrl = event.url; 
+                let eventVenue = event._embedded.venues[0].name;               
                 
+                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event description: ", descript, "link: ", eventUrl, "venue: ", eventVenue, "segment name: ", segmentName);
                 
-                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event description: ", descript, "link: ", eventUrl, "venue: ", eventVenue);
-                
-                                
-
                 //get the UI element that the ticketMaster info will go into
                 let ticketMasterDiv = document.createElement('div');
                 let eventTitle = document.createElement('h3');
@@ -72,9 +92,11 @@ let ticketMasterSearch = function userChoices() {
                 eventTitle.textContent = eventName;
                 dateEl.textContent = eventDate;
                 timeEl.textContent = " Start Time: " + eventTime;    
-                // segmentNameEl.textContent = segmentName;           
-                descriptionEl.textContent = descript;
-                venueEl.textContent = "Held at "  + eventVenue;
+                // segmentNameEl.textContent = segmentName;   
+                if(!descript) {
+                    descriptionEl.textContent = "";
+                } else descriptionEl.textContent = descript;
+                venueEl.textContent = "Held at the "  + eventVenue;
 
                 //open in a new tab??
                 let urlEl = document.createElement('a');
@@ -102,17 +124,20 @@ let ticketMasterSearch = function userChoices() {
               
             }
         })
-        .catch((error) => {
-            console.log(error);
-            alert("Please check your city spelling");
-        });
+        // .catch((error) => {
+        //     console.log(error);
+        //     alert("Please check your city spelling");
+        // });
 }
 
-ticketMasterSearch();
-//open new window to show events 
-// ticketMaster.addEventListener("click", {
-//     window.open("url...", windowFeatures )
-// });
+citySearchBtn.addEventListener("click", ticketMasterSearch);
 
-// userChoices();
+
+
+$(document).ready(function () {
+    $('.datepicker').datepicker({
+        yearRange: 1
+    });
+    
+});
 
