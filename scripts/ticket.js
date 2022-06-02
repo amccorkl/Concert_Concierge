@@ -79,7 +79,7 @@ let ticketMasterSearch = function (event) {
                 
                 //get the UI element that the ticketMaster info will go into
                 let ticketMasterDiv = document.createElement('div');
-                let eventTitle = document.createElement('h3');
+                let eventTitle = document.createElement('h4');
                 // let segmentNameEl = document.createElement('p');
                 let descriptionEl = document.createElement('p');
                 let dateEl = document.createElement('span');  
