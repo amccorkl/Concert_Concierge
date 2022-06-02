@@ -6,12 +6,11 @@
 
 
 header {
-    background-image: url(./images/musicfestival.jpg);
-    background-color: #cccccc;
-    min-height: 1000px;
+    background: url(../images/musicfestival.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    min-height: 1000px;
+    /* border: turquoise 1px solid; */
 }
 
 @media screen and (max-width: 670px){
