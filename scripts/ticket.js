@@ -13,17 +13,18 @@ const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
 
 
 //creates the buttons for the classifications search
-var activityList = ["Music", "Sports", "Film"];
-var activityBox = document.getElementById("activity-btns");
-activityList.forEach(function(activity) {
-    var btn = document.createElement('button');
-    btn.textContent = activity;
-    btn.setAttribute("value", activity);
-    btn.onclick=function() {
-        console.log(this.value);
-    }
-    document.getElementById("activity-btns").append(btn);
-})
+
+// var activityList = ["Music", "Sports", "Film"];
+// var activityBox = document.getElementById("activity-btns");
+// activityList.forEach(function(activity) {
+//     var btn = document.createElement('button');
+//     btn.textContent = activity;
+//     btn.setAttribute("value", activity);
+//     btn.onclick=function() {
+//         console.log(this.value);
+//     }
+//     document.getElementById("activity-btns").appendChild(btn);
+// })
 
 
 let ticketMasterSearch = function (event) {

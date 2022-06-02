@@ -13,6 +13,8 @@ header {
     /* border: turquoise 1px solid; */
 }
 
+
+
 @media screen and (max-width: 670px){
     header {
         min-height: 500px;
