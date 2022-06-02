@@ -35,35 +35,34 @@
         </nav>
     </header>
 
-    <div class="container">
+    <section class="section container scrollspy" id="input-date-city">
         <div class="row">
+                            <!--Calendar input-->
+                <h4>Plan a music getaway today</h4>
                 <div class="input-field">
-
                     <i class="material-icons prefix">date_range</i>
                     <input type="text" id="date" class="datepicker">
                     <label for="date">Choose a date...</label>
                 </div>
 
-
+<!-- City search portion// ***NEED TO ADD ANCHOR TAG TO SEARCH BTN TO DIRECT USERS TO RESULTS BELOW PARALLAX*** -->
                 <h4 id="city-search-title">Where are you traveling?</h4>
-                
-                <form id="city-search-form" class="form">
-                  <label for="city-name" class="form-label"></label>
-                  <input
-                    type="text"
-                    id="city-name"
-                    class="form-input"
-                    autofocus="true"
-                    placeholder="city name"
-                  />
-        
-                  <button id="city-submit-btn" type="submit">Search</button>
-                </form>
-
-
-         
-                <div class="input-field">
-                    <!-- <p>
+                    <form id="city-search-form" class="form">
+                        <label for="city-name" class="form-label"></label>
+                            <input
+                                type="text"
+                                id="city-name"
+                                class="form-input"
+                                autofocus="true"
+                                placeholder="city name"
+                            />
+                            <div class="center-align">
+                            <button id="city-submit-btn">Submit<button>
+                            </div>
+                    </form>
+                <!-- If we decide to add filters for music genres -->
+                <!-- <div class="input-field">
+                    <p>
                         <label>
                             <input type="checkbox">
                             <span>Concerts</span>
@@ -80,32 +79,52 @@
                             <input type="checkbox">
                             <span>Theater</span>
                         </label>
-                    </p> -->
+                    </p>
                 </div>
                 <div class="input-field center">
                     <button class="btn">Submit</button>
-                </div>
+                </div> -->
             </div>
-        </div>
-    </div>
+    </section>
+
     <div class="parallax-container">
         <div class="parallax">
-          <img src="./images/blacknwhite.jpg" alt="" class="responsive-img">
+            <img src="./images/blacknwhite.jpg" alt="" class="responsive-img">
         </div>
-
-      </div>
+    </div>
+        <!-- the carousel that we want to house API data parameters -->
     <div class="container scrollspy">
+        <div class="row">
+            <h2 class="center-align" id="carousel-title">Your Music</h2>
+            <section class="carousel carousel-slider center">
+                <div class="carousel-item red white-text" href="#one!" id="ticketmaster-search">
+                    <!-- <h2>First Panel</h2>
+                    <p class="white-text">This is your first panel</p> -->
+                </div>
+                <div class="carousel-item amber white-text" href="#two!">
+                    <h2>Second Panel</h2>
+                    <p class="white-text">This is your second panel</p>
+                </div>
+                <div class="carousel-item green white-text" href="#three!">
+                    <h2>Third Panel</h2>
+                    <p class="white-text">This is your third panel</p>
+                </div>
+                <div class="carousel-item blue white-text" href="#four!">
+                    <h2>Fourth Panel</h2>
+                    <p class="white-text">This is your fourth panel</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- <section class="section container scrollspy">
         <div class="row">
             <div class="col s12 l6">
                 <div class="card large">
                     <div class="card-content"  style="border: 1px solid black">
-                        <span class="card-title center">Your Music</span>                      
+                        <span class="card-title center">Your Music<span>                      
                     </div>
                     <section id="ticketmaster-search"></section>
-                    
-                    <div class="card-action">
-                        <a href="">View details</a>
-                    </div>
                 </div>
             </div>
 
@@ -126,7 +145,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section> -->
+
     <div class="parallax-container">
         <div class="parallax">
           <img src="./images/fisheyepov.jpg" alt="" class="responsive-img">
@@ -195,6 +215,10 @@
                 yearRange: 1
             });
             $('.parallax').parallax();
+            $('.carousel.carousel-slider').carousel({
+                fullWidth: true,
+                indicators: true})
+            $('.scrollspy').scrollSpy();
         });
     </script>
    
