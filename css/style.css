@@ -4,11 +4,10 @@
     box-sizing: border-box;
 }
 
-
 header {
     background-image: url(../images/musicfestival.jpg);
     background-color: #cccccc;
-    min-height: 1000px;
+    min-height: 700px;
     background-size: cover;
     background-position: center;
     /* border: turquoise 1px solid; */
