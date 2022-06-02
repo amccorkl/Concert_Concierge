@@ -37,12 +37,29 @@
 
     <div class="container">
         <div class="row">
-            <form>
+            <div>
                 <div class="input-field">
                     <i class="material-icons prefix">date_range</i>
                     <input type="text" id="date" class="datepicker">
                     <label for="date">Choose a date...</label>
                 </div>
+
+                <h4 id="city-search-title">Where are you traveling?</h4>
+                
+                <form id="city-search-form" class="form">
+                  <label for="city-name" class="form-label"></label>
+                  <input
+                    type="text"
+                    id="city-name"
+                    class="form-input"
+                    autofocus="true"
+                    placeholder="city name"
+                  />
+        
+                  <button id="city-submit-btn" type="submit">Search</button>
+                </form>
+
+
                 
                 <div class="input-field">
                     <p>
@@ -67,7 +84,7 @@
                 <div class="input-field center">
                     <button class="btn">Submit</button>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
     <div class="parallax-container">
@@ -75,25 +92,18 @@
           <img src="./images/blacknwhite.jpg" alt="" class="responsive-img">
         </div>
       </div>
-    <div class="container">
+    <div class="container scrollspy">
         <div class="row">
             <div class="col s12 l6">
-                <div class="card medium">
-                    <div class="card-content">
-                        <span class="card-title center">Select Your Band</span>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis aliquam orci. Orci
-                            varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p> -->
-                        <form id="band-name-form" class="form">
-                            <label for="band-name" class="form-label"></label>
-                            <input type="text" id="city-name" class="form-input" autofocus="true" placeholder="band name">
-                            <button id="submit-btn" type="submit">Search</button>
-                        </form>
-                        
+                <div class="card large">
+                    <div class="card-content"  style="border: 1px solid black">
+                        <span class="card-title center">Your Music</span>                      
                     </div>
-                    <div id="tickmaster-results"></div>
-                    <div class="card-action">
+                    <section id="ticketmaster-search"></section>
+                    
+                    <!-- <div class="card-action">
                         <a href="">View details</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -101,8 +111,7 @@
                 <div class="card medium">
                     <div class="card-content">
                         <span class="card-title center">Find a Restaurant or Bar</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis aliquam orci. Orci
-                            varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                        
                             <form id="food-name-form" class="form">
                                 <label for="restaurant" class="form-label"></label>
                                 <input type="text" id="restaurant" class="form-input" autofocus="true" placeholder="type of food?">
@@ -170,6 +179,8 @@
 
 
     <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./scripts/ticket.js"></script>
