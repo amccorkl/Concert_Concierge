@@ -11,15 +11,40 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="ticketmaster-results"></div>
+  <div>
+    <div id="ticketmaster-search" style="border: 1px solid black">
+      <div class="input-field">
+        <i class="material-icons prefix"></i>
+        <input type="text" id="date" class="datepicker" />
+        <label for="date">Choose a date...</label>
+      </div>
 
-    
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
-  ></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <h4 id="city-search-title">Where are you traveling?</h4>
+      <form id="city-search-form" class="form">
+        <label for="city-name" class="form-label"></label>
+        <input
+          type="text"
+          id="city-name"
+          class="form-input"
+          autofocus="true"
+          placeholder="city name"
+        />
 
-<script src="./scripts/ticket.js"></script>
-</body>
-</html>
+        <button id="city-submit-btn" type="submit">Search</button>
+      </form>
+
+      <div id="activity-btns"></div>
+        
+      <div class="input-field center">
+        <button class="btn">Submit</button>
+      </div>
+
+      <div id="ticketmaster-results"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
