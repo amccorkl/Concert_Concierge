@@ -13,6 +13,8 @@ header {
     background-repeat: no-repeat;
 }
 
+
+
 @media screen and (max-width: 670px){
     header {
         min-height: 500px;
