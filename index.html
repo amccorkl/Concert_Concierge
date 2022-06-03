@@ -35,32 +35,30 @@
         </nav>
     </header>
 
-    <div class="container">
-        <form class="row" id="search-form">
-                <div class="input-field">
+    <section class="section container scrollspy" id="input-date-city">
+        <div class="row">
+            <!--Calendar input-->
+            <h4>Plan a music getaway today</h4>
+            <div class="input-field">
+                <i class="material-icons prefix">date_range</i>
+                <input type="text" id="date" class="datepicker">
+                <label for="date">Choose a date...</label>
+            </div>
 
-                    <i class="material-icons prefix">date_range</i>
-                    <input type="text" id="date" class="datepicker">
-                    <label for="date">Choose a date...</label>
+
+            <!-- City search portion// ***NEED TO ADD ANCHOR TAG TO SEARCH BTN TO DIRECT USERS TO RESULTS BELOW PARALLAX*** -->
+            <h4 id="city-search-title">Where are you traveling?</h4>
+            <form id="city-search-form" class="form">
+                <label for="city-name" class="form-label"></label>
+                <input type="text" id="city-name" class="form-input" autofocus="true" placeholder="city name" />
+                <div class="center-align">
+                    <button class="btn amber darken-3 waves-effect waves-light" id="city-submit-btn">Submit<button>
                 </div>
 
+            </form>
+            <!-- If we decide to add filters for music genres -->
+            <!-- <div class="input-field">
 
-                <h4 id="city-search-title">Where are you traveling?</h4>
-                
-                <div id="city-search-form" class="form">
-                  <label for="city-name" class="form-label"></label>
-                  <input
-                    type="text"
-                    id="city-name"
-                    class="form-input"
-                    autofocus="true"
-                    placeholder="city name"
-                  />
-        
-                  <!-- <button id="city-submit-btn" type="submit">Search</button>
-                </div> -->
-       
-                <fieldset class="input-field">
                     <p>
                         <label>
                             <input type="checkbox" id="rock" value="rock"> 
@@ -79,31 +77,53 @@
                             <span>Classical</span>
                         </label>
                     </p>
-                </fieldset>
-                <div class="input-field center">
-                    <button class="btn" id="submit-btn">Submit</button>
+
                 </div>
-            </form>
+                <div class="input-field center">
+                    <button class="btn">Submit</button>
+                </div> -->
+        </div>
+    </section>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="parallax">
+            <img src="./images/blacknwhite.jpg" alt="" class="responsive-img">
         </div>
     </div>
-    <div class="parallax-container">
-        <div class="parallax">
-          <img src="./images/blacknwhite.jpg" alt="" class="responsive-img">
+    <!-- the carousel that we want to house API data parameters -->
+    <div class="container">
+        <div class="row center">
+            <h3 class="center-align" id="carousel-title">Your Music</h3>
+            <section class="carousel carousel-slider center" style="height: 600px;">
+                <div class="carousel-item red white-text" href="#one!" id="ticketmaster-search">
+                    <!-- <h2>First Panel</h2>
+                    <p class="white-text">This is your first panel</p> -->
+                </div>
+                <div class="carousel-item amber white-text" href="#two!">
+                    <h2>Second Panel</h2>
+                    <p class="white-text">This is your second panel</p>
+                </div>
+                <div class="carousel-item green white-text" href="#three!">
+                    <h2>Third Panel</h2>
+                    <p class="white-text">This is your third panel</p>
+                </div>
+                <div class="carousel-item blue white-text" href="#four!">
+                    <h2>Fourth Panel</h2>
+                    <p class="white-text">This is your fourth panel</p>
+                </div>
+            </section>
         </div>
+    </div>
 
-      </div>
-    <div class="container scrollspy">
+    <!-- <section class="section container scrollspy">
         <div class="row">
             <div class="col s12 l6">
                 <div class="card large">
                     <div class="card-content"  style="border: 1px solid black">
-                        <span class="card-title center">Your Music</span>                      
+                        <span class="card-title center">Your Music<span>                      
                     </div>
                     <section id="ticketmaster-search"></section>
-                    
-                    <div class="card-action" id="more-results">
-                        <a  href="">View details</a>
-                    </div>
+
                 </div>
             </div>
 
@@ -124,12 +144,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="parallax-container">
+    </section> -->
+
+    <div class="parallax-container ">
         <div class="parallax">
-          <img src="./images/fisheyepov.jpg" alt="" class="responsive-img">
+            <img src="./images/fisheyepov.jpg" alt="" class="responsive-img">
         </div>
-      </div>
+    </div>
     <section class="section container scrollspy" id="contact">
         <div class="row">
             <div class="col s12 l5">
@@ -160,17 +181,18 @@
     </section>
 
     <footer class="page-footer black">
-        <div class="container valign-center">
-          <div class="row">
+
+        <!-- <div class="container valign-center">
+        <div class="row">
             <div class="col l4 offset-l2 s12">
-              <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Sign up for our Newsletter</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Email</a></li>
-              </ul>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Sign up for our Newsletter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Email</a></li>
+                </ul>
             </div>
-          </div>
         </div>
+        </div> -->
         <div class="footer-copyright center">
             <div class="container">
                 <p> © 2022 🎶CC Productions🎙️</p>
@@ -184,7 +206,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./scripts/ticket.js"></script>
-    
+
     <script>
         //   inorder to make the hamburger nav work, have to write this JS code with jquery//
         $(document).ready(function () {
@@ -193,9 +215,14 @@
                 yearRange: 1
             });
             $('.parallax').parallax();
+            $('.carousel.carousel-slider').carousel({
+                fullWidth: true,
+                indicators: true
+            });
+            $('.scrollspy').scrollSpy();
         });
     </script>
-   
+
 </body>
 
 </html>
