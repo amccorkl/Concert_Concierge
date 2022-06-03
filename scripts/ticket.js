@@ -1,5 +1,6 @@
 const ticketmasterEl = document.getElementById("ticketmaster-search");
-let searchForm = document.getElementById("city-search-form");
+let searchSubmitBtn = document.getElementById("submit-btn");
+let citySearchForm = document.getElementById("city-search-form");
 let citySearchBtn = document.getElementById("city-submit-btn");
 //search for events
 let testCity = "Denver";
@@ -7,7 +8,7 @@ let cityName = document.getElementById("city-name");
 let date = document.getElementById("date");
 //event genre 
 let eventClassification = "Music";
-let segmentClassification = document.getElementById("submit-btn");
+// let segmentClassification = document.getElementById("submit-btn");
 
 const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
 
@@ -35,13 +36,21 @@ let ticketMasterSearch = function (event) {
     console.log(cityInput);
     cityName.value = "";
 
-    let dateInput = date.value;
-    //use moment to reformat
-    let dateInputFormat = moment(dateInput, "MMMM Do, YYYY").format("YYYY-MMMM-Do")
+
+    let dateInput = date.value;   
+    let dateInputFormat = dateInput.formatDate("yy-mm-dd", dateInput);
+    // "YYYY-MMMM-Do").format("MMMM Do, YYYY")
     // eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
-    console.log(dateInput);
+    console.log(dateInput, dateInputFormat);
     date.value = "";
     // let segClassificationInput = segmentClassification.value; 
+
+    //select checked item(s)
+    let checkedEl = $("input:checked").value;
+    console.log(checkedEl);
+    // var selected = [];
+    //clear checked item
+    $('input[type="checkbox"]').prop('checked', false);
     
     
     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
@@ -65,21 +74,24 @@ let ticketMasterSearch = function (event) {
                 let event = eventList[i];
                 let eventName = event.name;               
                 let eventDate = event.dates.start.localDate;
-                eventDate = moment(eventDate, "YYYY-MM-DD").format("MMMM Do, YYYY");
+                eventDate = dateInputFormat;
+                moment(eventDate, "YYYY-MM-DD").format("MMMM Do, YYYY");
                 let eventTime = event.dates.start.localTime;
                 eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
                 //type of event
-                let segmentName = event.classifications[0].segment.name;
+                // let segmentName = event.classifications[0].segment.name;
+                // checkedEl = event.classifications[0].subgenre.name;
                 let descript = event.description;
                 let eventImages = event.images[0].url; 
                 let eventUrl = event.url; 
                 let eventVenue = event._embedded.venues[0].name;               
                 
-                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event description: ", descript, "link: ", eventUrl, "venue: ", eventVenue, "segment name: ", segmentName);
-                
+                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event description: ", descript, "link: ", eventUrl, "venue: ", eventVenue);
+                // "segment name: ", segmentName
+
                 //get the UI element that the ticketMaster info will go into
                 let ticketMasterDiv = document.createElement('div');
-                let eventTitle = document.createElement('h3');
+                let eventTitle = document.createElement('h4');
                 // let segmentNameEl = document.createElement('p');
                 let descriptionEl = document.createElement('p');
                 let dateEl = document.createElement('span');  
@@ -106,6 +118,7 @@ let ticketMasterSearch = function (event) {
                 // eventUrl.addEventListener("click", () => {
                 //     Object.assign()
                 // })
+                // urlEl.setAttribute("target", "_blank");
                 urlEl.href = (eventUrl);
                               
 
@@ -114,11 +127,14 @@ let ticketMasterSearch = function (event) {
                 imagesEl.setAttribute("style", "width: 50%; height: 50%;");
 
                 let pleaseNote = event.pleaseNote;
-                if(pleaseNote) {
-                    //pleaseNote doesn't show up on all of them, some as undefined     
-                    let pleaseNoteEl = document.createElement('p');  
-                    pleaseNoteEl.textContent = pleaseNote;
-                }
+                // if(!pleaseNote == "") {
+                //     return;
+                //     //pleaseNote doesn't show up on all of them, some as undefined                  
+                // }
+                let pleaseNoteEl = document.createElement('p');  
+                pleaseNoteEl.textContent = pleaseNote;
+
+               
 
                 ticketMasterDiv.append(eventTitle,  descriptionEl, dateEl, timeEl, pleaseNote, urlEl, venueEl, imagesEl);
                 ticketmasterEl.append(ticketMasterDiv);
@@ -131,7 +147,15 @@ let ticketMasterSearch = function (event) {
         // });
 }
 
-citySearchBtn.addEventListener("click", ticketMasterSearch);
+// var moreInfoDisplay = function(size) {
+   
+    
+//     let moreEvents = document.getElementById("more-results");
+//     moreEvents.setAttribute("href",)
+// }
+
+searchSubmitBtn.addEventListener("click", ticketMasterSearch);
+// citySearchBtn.addEventListener("click", ticketMasterSearch);
 
 
 

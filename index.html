@@ -36,7 +36,7 @@
     </header>
 
     <div class="container">
-        <div class="row">
+        <form class="row" id="search-form">
                 <div class="input-field">
 
                     <i class="material-icons prefix">date_range</i>
@@ -47,7 +47,7 @@
 
                 <h4 id="city-search-title">Where are you traveling?</h4>
                 
-                <form id="city-search-form" class="form">
+                <div id="city-search-form" class="form">
                   <label for="city-name" class="form-label"></label>
                   <input
                     type="text"
@@ -57,38 +57,36 @@
                     placeholder="city name"
                   />
         
-                  <button id="city-submit-btn" type="submit">Search</button>
-                </form>
-
-
-         
-                <div class="input-field">
-                    <!-- <p>
+                  <!-- <button id="city-submit-btn" type="submit">Search</button>
+                </div> -->
+       
+                <fieldset class="input-field">
+                    <p>
                         <label>
-                            <input type="checkbox">
-                            <span>Concerts</span>
+                            <input type="checkbox" id="rock" value="rock"> 
+                            <span>Rock</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox">
-                            <span>Sports</span>
+                           <input type="checkbox" id="pop" value="pop"> 
+                            <span>Pop</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox">
-                            <span>Theater</span>
+                            <input type="checkbox" id="classical" value="classical"> 
+                            <span>Classical</span>
                         </label>
-                    </p> -->
-                </div>
+                    </p>
+                </fieldset>
                 <div class="input-field center">
-                    <button class="btn">Submit</button>
+                    <button class="btn" id="submit-btn">Submit</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-    <!-- <div class="parallax-container">
+    <div class="parallax-container">
         <div class="parallax">
           <img src="./images/blacknwhite.jpg" alt="" class="responsive-img">
         </div>
@@ -103,9 +101,9 @@
                     </div>
                     <section id="ticketmaster-search"></section>
                     
-                    <!-- <div class="card-action">
-                        <a href="">View details</a>
-                    </div> -->
+                    <div class="card-action" id="more-results">
+                        <a  href="">View details</a>
+                    </div>
                 </div>
             </div>
 
@@ -162,7 +160,7 @@
     </section>
 
     <footer class="page-footer black">
-        <!-- <div class="container valign-center">
+        <div class="container valign-center">
           <div class="row">
             <div class="col l4 offset-l2 s12">
               <ul>
@@ -172,7 +170,7 @@
               </ul>
             </div>
           </div>
-        </div> -->
+        </div>
         <div class="footer-copyright center">
             <div class="container">
                 <p> © 2022 🎶CC Productions🎙️</p>
