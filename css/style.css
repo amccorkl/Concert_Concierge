@@ -14,13 +14,12 @@ header {
 }
 
 
-
 @media screen and (max-width: 670px){
     header {
         min-height: 500px;
     }
 }
 
-/* #city-submit-btn {
-
+/* nav .brand-logo {
+    display: flex;
 } */
