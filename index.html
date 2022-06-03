@@ -37,31 +37,25 @@
 
     <section class="section container scrollspy" id="input-date-city">
         <div class="row">
-                            <!--Calendar input-->
-                <h4>Plan a music getaway today</h4>
-                <div class="input-field">
-                    <i class="material-icons prefix">date_range</i>
-                    <input type="text" id="date" class="datepicker">
-                    <label for="date">Choose a date...</label>
-                </div>
+            <!--Calendar input-->
+            <h4>Plan a music getaway today</h4>
+            <div class="input-field">
+                <i class="material-icons prefix">date_range</i>
+                <input type="text" id="date" class="datepicker">
+                <label for="date">Choose a date...</label>
+            </div>
 
-<!-- City search portion// ***NEED TO ADD ANCHOR TAG TO SEARCH BTN TO DIRECT USERS TO RESULTS BELOW PARALLAX*** -->
-                <h4 id="city-search-title">Where are you traveling?</h4>
-                    <form id="city-search-form" class="form">
-                        <label for="city-name" class="form-label"></label>
-                            <input
-                                type="text"
-                                id="city-name"
-                                class="form-input"
-                                autofocus="true"
-                                placeholder="city name"
-                            />
-                            <div class="center-align">
-                            <button id="city-submit-btn">Submit<button>
-                            </div>
-                    </form>
-                <!-- If we decide to add filters for music genres -->
-                <!-- <div class="input-field">
+            <!-- City search portion// ***NEED TO ADD ANCHOR TAG TO SEARCH BTN TO DIRECT USERS TO RESULTS BELOW PARALLAX*** -->
+            <h4 id="city-search-title">Where are you traveling?</h4>
+            <form id="city-search-form" class="form">
+                <label for="city-name" class="form-label"></label>
+                <input type="text" id="city-name" class="form-input" autofocus="true" placeholder="city name" />
+                <div class="center-align">
+                    <button class="btn amber darken-3 waves-effect waves-light" id="city-submit-btn">Submit<button>
+                </div>
+            </form>
+            <!-- If we decide to add filters for music genres -->
+            <!-- <div class="input-field">
                     <p>
                         <label>
                             <input type="checkbox">
@@ -84,19 +78,19 @@
                 <div class="input-field center">
                     <button class="btn">Submit</button>
                 </div> -->
-            </div>
+        </div>
     </section>
 
-    <div class="parallax-container">
+    <div class="parallax-container valign-wrapper">
         <div class="parallax">
             <img src="./images/blacknwhite.jpg" alt="" class="responsive-img">
         </div>
     </div>
-        <!-- the carousel that we want to house API data parameters -->
-    <div class="container scrollspy">
-        <div class="row">
-            <h2 class="center-align" id="carousel-title">Your Music</h2>
-            <section class="carousel carousel-slider center">
+    <!-- the carousel that we want to house API data parameters -->
+    <div class="container">
+        <div class="row center">
+            <h3 class="center-align" id="carousel-title">Your Music</h3>
+            <section class="carousel carousel-slider center" style="height: 600px;">
                 <div class="carousel-item red white-text" href="#one!" id="ticketmaster-search">
                     <!-- <h2>First Panel</h2>
                     <p class="white-text">This is your first panel</p> -->
@@ -147,11 +141,11 @@
         </div>
     </section> -->
 
-    <div class="parallax-container">
+    <div class="parallax-container ">
         <div class="parallax">
-          <img src="./images/fisheyepov.jpg" alt="" class="responsive-img">
+            <img src="./images/fisheyepov.jpg" alt="" class="responsive-img">
         </div>
-      </div>
+    </div>
     <section class="section container scrollspy" id="contact">
         <div class="row">
             <div class="col s12 l5">
@@ -183,15 +177,15 @@
 
     <footer class="page-footer black">
         <!-- <div class="container valign-center">
-          <div class="row">
+        <div class="row">
             <div class="col l4 offset-l2 s12">
-              <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Sign up for our Newsletter</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Email</a></li>
-              </ul>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Sign up for our Newsletter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Email</a></li>
+                </ul>
             </div>
-          </div>
+        </div>
         </div> -->
         <div class="footer-copyright center">
             <div class="container">
@@ -206,7 +200,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./scripts/ticket.js"></script>
-    
+
     <script>
         //   inorder to make the hamburger nav work, have to write this JS code with jquery//
         $(document).ready(function () {
@@ -217,11 +211,12 @@
             $('.parallax').parallax();
             $('.carousel.carousel-slider').carousel({
                 fullWidth: true,
-                indicators: true})
+                indicators: true
+            });
             $('.scrollspy').scrollSpy();
         });
     </script>
-   
+
 </body>
 
 </html>
