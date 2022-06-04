@@ -10,7 +10,7 @@ header {
     min-height: 850px;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    /* border: turquoise 1px solid; */
 }
 
 
