@@ -7,12 +7,11 @@
 header {
     background-image: url(../images/musicfestival.jpg);
     background-color: #cccccc;
-    min-height: 700px;
+    min-height: 850px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-
 
 
 @media screen and (max-width: 670px){
@@ -20,3 +19,7 @@ header {
         min-height: 500px;
     }
 }
+
+/* nav .brand-logo {
+    display: flex;
+} */
