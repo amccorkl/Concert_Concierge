@@ -27,14 +27,18 @@ header {
 .datepicker-date-display {
     background-color: #ff8f00;
 }
-
 .datepicker-table td.is-today {
-    color: #ff8f00;
+    color:#ff8f00;
 }
 
 .datepicker-table td.is-selected {
     background-color: #ff8f00;
+    color: white;
 }
+
+/* button.datepicker-day-button {
+    color: black;
+} */
 
 button.month-prev:hover{
     background-color: #ff8f00;
@@ -47,11 +51,25 @@ button.month-next:hover{
     color: #ff8f00;
 }
 
+.dropdown-content li>span {
+    font-size: 16px;
+    color:#ff8f00;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+
+
 input#city-name.form-input {
     border-bottom-color: black;
-    box-shadow: black;
+    box-shadow: none
 }
 
 .results {
     overflow-y: scroll;
 }
+
+/* .app-bg {
+    background-color: red !important;
+  } */
