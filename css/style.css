@@ -23,8 +23,10 @@ header {
 /* nav .brand-logo {
     display: flex;
 } */
-.custom-input {
+
+input#city-name.form-input {
     border-bottom-color: black;
+    box-shadow: black;
 }
 
 .results {
