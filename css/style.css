@@ -10,7 +10,7 @@ header {
     min-height: 850px;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    /* border: turquoise 1px solid; */
 }
 
 
@@ -23,8 +23,33 @@ header {
 /* nav .brand-logo {
     display: flex;
 } */
-.form-input {
-    border-bottom: black;
+
+.datepicker-date-display {
+    background-color: #ff8f00;
+}
+
+.datepicker-table td.is-today {
+    color: #ff8f00;
+}
+
+.datepicker-table td.is-selected {
+    background-color: #ff8f00;
+}
+
+button.month-prev:hover{
+    background-color: #ff8f00;
+}
+button.month-next:hover{
+    background-color: #ff8f00;
+}
+
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+    color: #ff8f00;
+}
+
+input#city-name.form-input {
+    border-bottom-color: black;
+    box-shadow: black;
 }
 
 .results {

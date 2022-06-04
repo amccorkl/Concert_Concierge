@@ -132,8 +132,8 @@ let ticketMasterSearch = function (event) {
 //     moreEvents.setAttribute("href",)
 // }
 
-searchSubmitBtn.addEventListener("click", ticketMasterSearch);
-// citySearchBtn.addEventListener("click", ticketMasterSearch);
+// searchSubmitBtn.addEventListener("click", ticketMasterSearch);
+citySearchBtn.addEventListener("click", ticketMasterSearch);
 
 
 

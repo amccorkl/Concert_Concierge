@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="section container scrollspy" id="input-date-city">
+        <div class="row">
+            
+            <!-- City search portion// ***NEED TO ADD ANCHOR TAG TO SEARCH BTN TO DIRECT USERS TO RESULTS BELOW PARALLAX*** -->
+            <h4 id="city-search-title">Where are you traveling?</h4>
+            <form id="city-search-form" class="form">
+                <label for="city-name" class="form-label"></label>
+                <input type="text" id="city-name" class="form-input" autofocus="true" placeholder="city name" />
+                
+
+            </form>
+            
+        </div>
+
+        <div id="yelp-id">
+            <h4 id="Yelp">Where are you traveling?</h4>
+            <form id="yelp-food-search" class="form">
+                <label for="foodType" class="form-label"></label>
+                <input type="text" id="foodType" class="form-input" autofocus="true" placeholder="What kind of food do you want?"/>
+
+            </form>
+
+        </div>
+        <div class="center-align">
+            <button class="btn amber darken-3 waves-effect waves-light" id="submit-btn">Submit<button>
+        </div>
+    </section>
+    <div id="restaurant-results"></div>
+
+    <div id="food-saved-results"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="./yelp.js"></script>
+</body>
+</html>
