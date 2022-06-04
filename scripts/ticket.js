@@ -13,19 +13,7 @@ let eventClassification = "Music";
 const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
 
 
-//creates the buttons for the classifications search
 
-// var activityList = ["Music", "Sports", "Film"];
-// var activityBox = document.getElementById("activity-btns");
-// activityList.forEach(function(activity) {
-//     var btn = document.createElement('button');
-//     btn.textContent = activity;
-//     btn.setAttribute("value", activity);
-//     btn.onclick=function() {
-//         console.log(this.value);
-//     }
-//     document.getElementById("activity-btns").appendChild(btn);
-// })
 
 
 let ticketMasterSearch = function (event) {
@@ -36,24 +24,18 @@ let ticketMasterSearch = function (event) {
     console.log(cityInput);
     cityName.value = "";
 
-
-    let dateInput = date.value;   
-    let dateInputFormat = dateInput.formatDate("yy-mm-dd", dateInput);
-    // "YYYY-MMMM-Do").format("MMMM Do, YYYY")
+    let dateInput = date.value;
+    //use moment to reformat
+    let dateMoment = moment(dateInput).utc().format();
+    console.log({dateMoment});
     // eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
-    console.log(dateInput, dateInputFormat);
+    
     date.value = "";
-    // let segClassificationInput = segmentClassification.value; 
+    
 
-    //select checked item(s)
-    let checkedEl = $("input:checked").value;
-    console.log(checkedEl);
-    // var selected = [];
-    //clear checked item
-    $('input[type="checkbox"]').prop('checked', false);
     
-    
-    let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
+    let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&startDateTime=${dateMoment}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
+    console.log(ticketMasterRequestUrl);
     // &size=5& // 
     //&classificationName${Music...}
     //&startDateTime=${dateInput}
@@ -74,21 +56,18 @@ let ticketMasterSearch = function (event) {
                 let event = eventList[i];
                 let eventName = event.name;               
                 let eventDate = event.dates.start.localDate;
-                eventDate = dateInputFormat;
-                moment(eventDate, "YYYY-MM-DD").format("MMMM Do, YYYY");
+                eventDate = moment(eventDate, "YYYY-MM-DD").format("MMMM Do, YYYY");
                 let eventTime = event.dates.start.localTime;
                 eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
                 //type of event
-                // let segmentName = event.classifications[0].segment.name;
-                // checkedEl = event.classifications[0].subgenre.name;
+                let segmentName = event.classifications[0].segment.name;
                 let descript = event.description;
                 let eventImages = event.images[0].url; 
                 let eventUrl = event.url; 
                 let eventVenue = event._embedded.venues[0].name;               
                 
-                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event description: ", descript, "link: ", eventUrl, "venue: ", eventVenue);
-                // "segment name: ", segmentName
-
+                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event description: ", descript, "link: ", eventUrl, "venue: ", eventVenue, "segment name: ", segmentName);
+                
                 //get the UI element that the ticketMaster info will go into
                 let ticketMasterDiv = document.createElement('div');
                 let eventTitle = document.createElement('h4');
@@ -118,7 +97,7 @@ let ticketMasterSearch = function (event) {
                 // eventUrl.addEventListener("click", () => {
                 //     Object.assign()
                 // })
-                // urlEl.setAttribute("target", "_blank");
+                urlEl.setAttribute("target", "_blank");
                 urlEl.href = (eventUrl);
 
 
