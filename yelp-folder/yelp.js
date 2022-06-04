@@ -52,23 +52,49 @@ let searchYelpApi = function(event) {
                 console.log({cardInfo}); 
 
 
-            for(let i = 0; i < data.length; i++) {
+            for(let i = 0; i < cardInfo.length; i++) {
                 let element = cardInfo[i];
-            }
-            let restaurantNameEl = document.createElement("h4");
-            let phoneEl = document.createElement("p");
-            let imageEl = document.createElement("img");
-            let locationEl = document.createElement("p");
-            let ratingEl = document.createElement("p");
-            let priceEl = document.createElement("p");
-            let urlEl = document.createElement("p");
 
-            let restaurantName = element.name;
-            let phone = element.phone;
-            let rating = element.rating;
-            let price = element.price;
-            let location = element.location;
-            let image = element.image_url;
+                let restaurantName = element.name;
+                let phone = element.phone;
+                let rating = element.rating;
+                let price = element.price;
+                let location = element.location.display_address;
+                let image = element.image_url;
+                let urlLink = element.url;
+
+                console.log(restaurantName, phone, rating, price, location, image);
+
+                let yelpDiv = document.createElement('div');
+                let restaurantNameEl = document.createElement("h4");
+                let phoneEl = document.createElement("p");
+                let imageEl = document.createElement("img");
+                let locationEl = document.createElement("p");
+                let ratingEl = document.createElement("p");
+                let priceEl = document.createElement("p");
+                let urlEl = document.createElement("a");
+            
+                restaurantNameEl.textContent = "Name: " + restaurantName;
+                phoneEl.textContent = "Contact: " + phone;
+                
+                ratingEl.textContent = "Rating: " + rating;
+                locationEl.textContent = "Location: " + location;
+                priceEl.textContent = "Price: " + price;
+                
+                //image and url not in there yet
+                // let urlText = document.createTextNode(" click here for more information");
+                // urlLink.append(urlText);
+                
+                imageEl.setAttribute("src", image);
+                imageEl.setAttribute("style", "width: 50%; height: 50%;"); 
+                urlEl.href = urlLink;
+                
+                foodSearchResultsEl.setAttribute("class", "food-class-div");
+                yelpDiv.setAttribute("style", "border: 1px solid black");
+                yelpDiv.append(restaurantName, rating, price, phone, location, urlLink);
+                foodSearchResultsEl.append(yelpDiv);
+
+            }
             
         });
         
