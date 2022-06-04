@@ -23,3 +23,10 @@ header {
 /* nav .brand-logo {
     display: flex;
 } */
+.form-input {
+    border-bottom: black;
+}
+
+.results {
+    overflow-y: scroll;
+}
