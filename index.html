@@ -44,7 +44,6 @@
                 <input type="text" id="date" class="datepicker">
                 <label for="date">Choose a date...</label>
             </div>
-
             <!-- City search portion// ***NEED TO ADD ANCHOR TAG TO SEARCH BTN TO DIRECT USERS TO RESULTS BELOW PARALLAX*** -->
             <h4 id="city-search-title">Where are you traveling?</h4>
             <form id="city-search-form" class="form">
@@ -87,13 +86,13 @@
         </div>
     </div>
     <!-- the carousel that we want to house API data parameters -->
-    <div class="container">
+    <!-- <div class="container">
         <div class="row center">
             <h3 class="center-align" id="carousel-title">Your Music</h3>
             <section class="carousel carousel-slider center" style="height: 600px;">
                 <div class="carousel-item red white-text" href="#one!" id="ticketmaster-search">
-                    <!-- <h2>First Panel</h2>
-                    <p class="white-text">This is your first panel</p> -->
+                    <h2>First Panel</h2>
+                    <p class="white-text">This is your first panel</p>
                 </div>
                 <div class="carousel-item amber white-text" href="#two!">
                     <h2>Second Panel</h2>
@@ -109,13 +108,13 @@
                 </div>
             </section>
         </div>
-    </div>
+    </div> -->
 
-    <!-- <section class="section container scrollspy">
+    <section class="section container scrollspy">
         <div class="row">
             <div class="col s12 l6">
-                <div class="card large">
-                    <div class="card-content"  style="border: 1px solid black">
+                <div class="card large center results">
+                    <div class="card-content center" style="border: 1px solid black">
                         <span class="card-title center">Your Music<span>                      
                     </div>
                     <section id="ticketmaster-search"></section>
@@ -123,23 +122,19 @@
             </div>
 
             <div class="col s12 l6">
-                <div class="card medium">
-                    <div class="card-content">
+                <div class="card large center results">
+                    <div class="card-content center" style="border: 1px solid black">
                         <span class="card-title center">Find a Restaurant or Bar</span>
-                        
                             <form id="food-name-form" class="form">
                                 <label for="restaurant" class="form-label"></label>
                                 <input type="text" id="restaurant" class="form-input" autofocus="true" placeholder="type of food?">
                                 <button id="submit-btn" type="submit">Search</button>
                             </form>
                     </div>
-                    <div class="card-action">
-                        <a href="">View details</a>
-                    </div>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <div class="parallax-container ">
         <div class="parallax">
@@ -209,10 +204,10 @@
                 yearRange: 1
             });
             $('.parallax').parallax();
-            $('.carousel.carousel-slider').carousel({
-                fullWidth: true,
-                indicators: true
-            });
+            // $('.carousel.carousel-slider').carousel({
+            //     fullWidth: true,
+            //     indicators: true
+            // });
             $('.scrollspy').scrollSpy();
         });
     </script>
