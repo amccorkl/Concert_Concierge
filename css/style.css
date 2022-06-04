@@ -23,8 +23,8 @@ header {
 /* nav .brand-logo {
     display: flex;
 } */
-.form-input {
-    border-bottom: black;
+.custom-input {
+    border-bottom-color: black;
 }
 
 .results {
