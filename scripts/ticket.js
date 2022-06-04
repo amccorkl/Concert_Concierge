@@ -37,7 +37,7 @@ let ticketMasterSearch = function (event) {
     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&startDateTime=${dateMoment}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
     console.log(ticketMasterRequestUrl);
     // &size=5& // 
-    //&classificationName${Music...} 
+    //&classificationName${Music...}
     //&startDateTime=${dateInput}
 
     
@@ -99,7 +99,7 @@ let ticketMasterSearch = function (event) {
                 // })
                 urlEl.setAttribute("target", "_blank");
                 urlEl.href = (eventUrl);
-                              
+
 
                 let imagesEl = document.createElement('img');
                 imagesEl.setAttribute("src", eventImages);
@@ -117,7 +117,6 @@ let ticketMasterSearch = function (event) {
 
                 ticketMasterDiv.append(eventTitle,  descriptionEl, dateEl, timeEl, pleaseNote, urlEl, venueEl, imagesEl);
                 ticketmasterEl.append(ticketMasterDiv);
-              
             }
         })
         // .catch((error) => {
