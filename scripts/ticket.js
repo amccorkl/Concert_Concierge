@@ -90,14 +90,13 @@ let ticketMasterSearch = function (event) {
                 } else descriptionEl.textContent = descript;
                 venueEl.textContent = "Held at the "  + eventVenue;
 
-                //open in a new tab??
                 let urlEl = document.createElement('a');
                 let text = document.createTextNode("  Click here for more information and tickets");
                 urlEl.append(text);
                 // eventUrl.addEventListener("click", () => {
                 //     Object.assign()
                 // })
-                urlEl.setAttribute("target", "_blank");
+                // urlEl.setAttribute("target", "_blank");
                 urlEl.href = (eventUrl);
 
 
