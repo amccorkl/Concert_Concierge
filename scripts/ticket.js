@@ -1,10 +1,9 @@
 const ticketmasterEl = document.getElementById("ticketmaster-search");
-let searchSubmitBtn = document.getElementById("submit-btn");
-let citySearchForm = document.getElementById("city-search-form");
-let citySearchBtn = document.getElementById("city-submit-btn");
+// let searchSubmitBtn = document.getElementById("submit-btn");
+let citySearchBtn = document.getElementById("submit-btn");
 //search for events
-let testCity = "Denver";
 let cityName = document.getElementById("city-name");
+
 let date = document.getElementById("date");
 //event genre 
 let eventClassification = "Music";
@@ -20,17 +19,17 @@ let ticketMasterSearch = function (event) {
     
     let cityInput = cityName.value;
     console.log(cityInput);
+    localStorage.setItem("cityInput", JSON.stringify(cityInput));
     cityName.value = "";
 
     let dateInput = date.value;
-    //use moment to reformat datepicker into TM's format for reading
+    //use moment to reformat datepicker into TM's format for parsing
     let dateMoment = moment(dateInput).utc().format();
     console.log({dateMoment});
     
     //clear the input field
     date.value = "";
-    
-    
+        
     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&startDateTime=${dateMoment}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
     console.log(ticketMasterRequestUrl);
  

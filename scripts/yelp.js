@@ -1,11 +1,9 @@
-let yelpContainerEl = document.getElementById("yelp-id");
+// let yelpContainerEl = document.getElementById("yelp-id");
 let yelpSearchForm = document.getElementById("yelp-food-search");
 let foodSearch = document.getElementById("foodType");
 let foodSearchResultsEl = document.getElementById("restaurant-results");
 let foodHistoryEl = document.getElementById("food-saved-results");
-let testCity = "Denver";
-let cityName = document.getElementById("city-name");
-let testFood = "Indian";
+// let cityName = document.getElementById("city-name");
 let searchBtn = document.getElementById("submit-btn");
 
 
@@ -13,19 +11,17 @@ let searchYelpApi = function(event) {
     event.preventDefault();
     console.log(event);
 
-    let cityInput = cityName.value;
-    cityName = "";
-    console.log(cityInput);
+    let cityInput = JSON.parse(localStorage.getItem("cityInput"));   
 
     let foodInput = foodSearch.value;
-    foodSearch = "";
     console.log(foodInput);
+    foodSearch = "";
 
     let yelpApiKey = 'zjzCcRjFdB51w-cAx9BNvLkPUrZv7SxLzuEioFbVaIUNUvoYM8sekjD5xJUyqYlkA77que94UbQG8U5dv6OQprKQn_v-mRGul4UX0LUo5RULjXPqHWoKTeug5GSVYnYx';
 
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
-    let yelpQueryUrl = `https://api.yelp.com/v3/businesses/search?location=${testCity}&term=${testFood}`;
+    let yelpQueryUrl = `https://api.yelp.com/v3/businesses/search?location=${cityInput}&term=${foodInput}`;
     //default is 20 restaurants
     //term=${testFood}
     //&radius=30&sort_by=rating
@@ -80,8 +76,9 @@ let searchYelpApi = function(event) {
                 locationEl.setAttribute("class", "address");
                 locationEl.textContent = "Location: " + location;
 
-                let ratingEl = document.createElement("p");
+                let ratingEl = document.createElement("a");
                 ratingEl.textContent = "Rating: " + rating;
+                // ratingEl.href = (rating);
 
                 let priceEl = document.createElement("p");
                 priceEl.textContent = "Price: " + price;                  
