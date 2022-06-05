@@ -7,10 +7,9 @@
 header {
     background-image: url(../images/musicfestival.jpg);
     background-color: #cccccc;
-    min-height: 850px;
+    min-height: 700px;
     background-size: cover;
     background-position: center;
-    /* border: turquoise 1px solid; */
 }
 
 
@@ -36,10 +35,6 @@ header {
     color: white;
 }
 
-/* button.datepicker-day-button {
-    color: black;
-} */
-
 button.month-prev:hover{
     background-color: #ff8f00;
 }
@@ -59,8 +54,6 @@ button.month-next:hover{
     padding: 14px 16px;
 }
 
-
-
 input#city-name.form-input {
     border-bottom-color: black;
     box-shadow: none
@@ -69,7 +62,3 @@ input#city-name.form-input {
 .results {
     overflow-y: scroll;
 }
-
-/* .app-bg {
-    background-color: red !important;
-  } */
