@@ -1,14 +1,12 @@
 let yelpContainerEl = document.getElementById("yelp-id");
 let yelpSearchForm = document.getElementById("yelp-food-search");
-let restaurantSearchInput = document.getElementById("foodType");
-let searchBtn = document.getElementById("submit-btn");
+let foodSearch = document.getElementById("foodType");
 let foodSearchResultsEl = document.getElementById("restaurant-results");
 let foodHistoryEl = document.getElementById("food-saved-results");
 let testCity = "Denver";
 let cityName = document.getElementById("city-name");
-
 let testFood = "Indian";
-
+let searchBtn = document.getElementById("submit-btn");
 
 
 let searchYelpApi = function(event) {
@@ -17,6 +15,11 @@ let searchYelpApi = function(event) {
 
     let cityInput = cityName.value;
     cityName = "";
+    console.log(cityInput);
+
+    let foodInput = foodSearch.value;
+    foodSearch = "";
+    console.log(foodInput);
 
     let yelpApiKey = 'zjzCcRjFdB51w-cAx9BNvLkPUrZv7SxLzuEioFbVaIUNUvoYM8sekjD5xJUyqYlkA77que94UbQG8U5dv6OQprKQn_v-mRGul4UX0LUo5RULjXPqHWoKTeug5GSVYnYx';
 
@@ -64,34 +67,40 @@ let searchYelpApi = function(event) {
                 let urlLink = element.url;
 
                 console.log(restaurantName, phone, rating, price, location, image);
-
+               
+                foodSearchResultsEl.setAttribute("class", "food-class-div");
                 let yelpDiv = document.createElement('div');
+                yelpDiv.setAttribute("style", "border: 1px solid black");               
+                yelpDiv.setAttribute("class", "yelp-div");
+
                 let restaurantNameEl = document.createElement("h4");
-                let phoneEl = document.createElement("p");
-                let imageEl = document.createElement("img");
+                restaurantNameEl.textContent = "Name: " + restaurantName;  
+                
                 let locationEl = document.createElement("p");
-                let ratingEl = document.createElement("p");
-                let priceEl = document.createElement("p");
-                let urlEl = document.createElement("a");
-            
-                restaurantNameEl.textContent = "Name: " + restaurantName;
-                phoneEl.textContent = "Contact: " + phone;
-                
-                ratingEl.textContent = "Rating: " + rating;
+                locationEl.setAttribute("class", "address");
                 locationEl.textContent = "Location: " + location;
-                priceEl.textContent = "Price: " + price;
+
+                let ratingEl = document.createElement("p");
+                ratingEl.textContent = "Rating: " + rating;
+
+                let priceEl = document.createElement("p");
+                priceEl.textContent = "Price: " + price;                  
                 
-                //image and url not in there yet
-                // let urlText = document.createTextNode(" click here for more information");
-                // urlLink.append(urlText);
-                
+                let phoneEl = document.createElement("a");
+                phoneEl.textContent = "Contact: " + phone;
+                phoneEl.href = (phone);
+            
+                let imageEl = document.createElement("img");
                 imageEl.setAttribute("src", image);
                 imageEl.setAttribute("style", "width: 50%; height: 50%;"); 
-                urlEl.href = urlLink;
+                imageEl.alt = "photo of restaurant logo or a food dish";
+
+                let urlEl = document.createElement("a");
+                let text = document.createTextNode(" Click here for more information");
+                urlEl.append(text);
+                urlEl.href = (urlLink);
                 
-                foodSearchResultsEl.setAttribute("class", "food-class-div");
-                yelpDiv.setAttribute("style", "border: 1px solid black");
-                yelpDiv.append(restaurantName, rating, price, phone, location, urlLink);
+                yelpDiv.append(restaurantNameEl, ratingEl, priceEl, imageEl, phoneEl, locationEl, urlEl);
                 foodSearchResultsEl.append(yelpDiv);
 
             }

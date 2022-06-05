@@ -28,11 +28,10 @@ let ticketMasterSearch = function (event) {
     //use moment to reformat
     let dateMoment = moment(dateInput).utc().format();
     console.log({dateMoment});
-    // eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
+    
     
     date.value = "";
     
-
     
     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&startDateTime=${dateMoment}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
     console.log(ticketMasterRequestUrl);
@@ -60,63 +59,51 @@ let ticketMasterSearch = function (event) {
                 let eventTime = event.dates.start.localTime;
                 eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
                 //type of event
-                let segmentName = event.classifications[0].segment.name;
-                let descript = event.description;
+                
                 let eventImages = event.images[0].url; 
                 let eventUrl = event.url; 
                 let eventVenue = event._embedded.venues[0].name;               
                 
-                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event description: ", descript, "link: ", eventUrl, "venue: ", eventVenue, "segment name: ", segmentName);
+                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event",  "link: ", eventUrl, "venue: ", eventVenue);
                 
                 //get the UI element that the ticketMaster info will go into
                 let ticketMasterDiv = document.createElement('div');
-                let eventTitle = document.createElement('h4');
-                // let segmentNameEl = document.createElement('p');
-                let descriptionEl = document.createElement('p');
-                let dateEl = document.createElement('span');  
-                let timeEl = document.createElement('p')       
-                let venueEl = document.createElement('p');
-
-
                 ticketMasterDiv.setAttribute("style", "border: 1px solid black");
+                ticketMasterDiv.setAttribute("class", "tm-div");
                 
-                
+
+                let eventTitle = document.createElement('h4');
                 eventTitle.textContent = eventName;
+                eventTitle.setAttribute("class", "music-group");              
+                                
+                let dateEl = document.createElement('span');  
                 dateEl.textContent = eventDate;
+                
+                let timeEl = document.createElement('p'); 
                 timeEl.textContent = " Start Time: " + eventTime;    
-                // segmentNameEl.textContent = segmentName;   
-                if(!descript) {
-                    descriptionEl.textContent = "";
-                } else descriptionEl.textContent = descript;
+                
+
+                let pleaseNoteEl = document.createElement('p');
+                let pleaseNote = event.pleaseNote;
+                pleaseNoteEl.textContent = pleaseNote;               
+
+                let venueEl = document.createElement('p');
                 venueEl.textContent = "Held at the "  + eventVenue;
 
                 let urlEl = document.createElement('a');
                 let text = document.createTextNode("  Click here for more information and tickets");
                 urlEl.append(text);
-                // eventUrl.addEventListener("click", () => {
-                //     Object.assign()
-                // })
-                // urlEl.setAttribute("target", "_blank");
                 urlEl.href = (eventUrl);
 
 
                 let imagesEl = document.createElement('img');
                 imagesEl.setAttribute("src", eventImages);
                 imagesEl.setAttribute("style", "width: 50%; height: 50%;");
+                imagesEl.alt = "photo of music act";
 
-                let pleaseNote = event.pleaseNote;
-                // if(!pleaseNote == "") {
-                //     return;
-                //     //pleaseNote doesn't show up on all of them, some as undefined                  
-                // }
-                let pleaseNoteEl = document.createElement('p');  
-                pleaseNoteEl.textContent = pleaseNote;
-
-               
-
-                ticketMasterDiv.append(eventTitle,  descriptionEl, dateEl, timeEl, pleaseNote, urlEl, venueEl, imagesEl);
+                ticketMasterDiv.append(eventTitle,  descriptionEl, dateEl, timeEl, urlEl, venueEl, imagesEl);
                 ticketmasterEl.append(ticketMasterDiv);
-            }
+                }
         })
         // .catch((error) => {
         //     console.log(error);
@@ -124,14 +111,6 @@ let ticketMasterSearch = function (event) {
         // });
 }
 
-// var moreInfoDisplay = function(size) {
-   
-    
-//     let moreEvents = document.getElementById("more-results");
-//     moreEvents.setAttribute("href",)
-// }
-
-// searchSubmitBtn.addEventListener("click", ticketMasterSearch);
 citySearchBtn.addEventListener("click", ticketMasterSearch);
 
 
