@@ -3,7 +3,7 @@ let yelpSearchForm = document.getElementById("yelp-food-search");
 let foodSearch = document.getElementById("foodType");
 let foodSearchResultsEl = document.getElementById("restaurant-results");
 let foodHistoryEl = document.getElementById("food-saved-results");
-let cityName = document.getElementById("city-name");
+// let cityName = document.getElementById("city-name");
 let searchBtn = document.getElementById("submit-btn");
 
 
@@ -11,9 +11,10 @@ let searchYelpApi = function(event) {
     event.preventDefault();
     console.log(event);
 
-    let cityInput = cityName.value;
-    console.log(cityInput);
-    cityName = "";
+    let cityInput = JSON.parse(localStorage.getItem("cityInput"));
+    // let cityInput = cityName.value;
+    // console.log(cityInput);
+    // cityName = "";
     
 
     let foodInput = foodSearch.value;
