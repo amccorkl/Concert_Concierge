@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Special Elite', cursive; */
+    
 }
 
 header {
@@ -17,6 +17,17 @@ header {
     header {
         min-height: 500px;
     }
+}
+
+h4 {
+    font-family: 'Special Elite', cursive;
+    font-size: 1.8rem;
+    line-height: 110%;
+    margin: 1.52rem 0 0.912rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
 }
 
 .datepicker-date-display {
@@ -53,13 +64,13 @@ button.month-next:hover{
 .input-field .prefix.active {
     color: black;
     border-bottom-color: black;
-    box-shadow: none
+    box-shadow: none;
 }
 
 input#date.datepicker {
     color: black;
     border-bottom-color: black;
-    box-shadow: none
+    box-shadow: none;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly])+label {
@@ -68,9 +79,33 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label {
 
 input#city-name.form-input {
     border-bottom-color: black;
-    box-shadow: none
+    box-shadow: none;
 }
 
+input#foodType.form-input {
+    border-bottom-color: black;
+    box-shadow: none;
+}
+
+/* .parallax-container .parallax img {
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+img.responsive-img, video.responsive-video {
+    max-width:100%;
+    height: auto;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 989px) {
+    .parallax {
+    background-attachment: scroll !important;
+    }
+} */
 /* .parallax-container {
     min-height: 200px;
     line-height: 0;
