@@ -23,14 +23,13 @@ let ticketMasterSearch = function (event) {
     cityName.value = "";
 
     let dateInput = date.value;
-    //use moment to reformat datepicker into TM's format for reading
+    //use moment to reformat datepicker into TM's format for parsing
     let dateMoment = moment(dateInput).utc().format();
     console.log({dateMoment});
     
     //clear the input field
     date.value = "";
-    
-    
+        
     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&startDateTime=${dateMoment}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
     console.log(ticketMasterRequestUrl);
  
