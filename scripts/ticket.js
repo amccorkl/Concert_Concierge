@@ -3,6 +3,7 @@ const ticketmasterEl = document.getElementById("ticketmaster-search");
 let citySearchBtn = document.getElementById("submit-btn");
 //search for events
 let cityName = document.getElementById("city-name");
+
 let date = document.getElementById("date");
 //event genre 
 let eventClassification = "Music";
@@ -18,6 +19,7 @@ let ticketMasterSearch = function (event) {
     
     let cityInput = cityName.value;
     console.log(cityInput);
+    localStorage.setItem("cityInput", JSON.stringify(cityInput));
     cityName.value = "";
 
     let dateInput = date.value;
