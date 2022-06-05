@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+/* nav .brand-logo {
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    font-size: 2.1rem;
+    padding: 0;
+} */
+
 header {
     background-image: url(../images/musicfestival.jpg);
     background-color: #cccccc;
@@ -12,16 +20,11 @@ header {
     background-position: center;
 }
 
-
 @media screen and (max-width: 670px){
     header {
         min-height: 500px;
     }
 }
-
-/* nav .brand-logo {
-    display: flex;
-} */
 
 .datepicker-date-display {
     background-color: #ff8f00;
@@ -54,10 +57,39 @@ button.month-next:hover{
     padding: 14px 16px;
 }
 
+.input-field .prefix.active {
+    color: black;
+    border-bottom-color: black;
+    box-shadow: none
+}
+
+input#date.datepicker {
+    color: black;
+    border-bottom-color: black;
+    box-shadow: none
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label {
+    color: black;
+}
+
 input#city-name.form-input {
     border-bottom-color: black;
     box-shadow: none
 }
+
+/* .parallax-container {
+    min-height: 200px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+}
+
+@media screen and (max-width: 670px){
+    .parallax-container {
+        min-height: 500px;
+    }
+} */
 
 .results {
     overflow-y: scroll;
