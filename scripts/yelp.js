@@ -22,11 +22,8 @@ let searchYelpApi = function(event) {
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
     let yelpQueryUrl = `https://api.yelp.com/v3/businesses/search?location=${cityInput}&term=${foodInput}`;
-    //default is 20 restaurants
-    //term=${testFood}
-    //&radius=30&sort_by=rating
     
-    //appending fetch headers for api request
+    //appending fetch headers for api request for cors-anywhere to work
     let myHeaders = new Headers();
     myHeaders.append("method", "GET");
     myHeaders.append("Authorization", `Bearer ${yelpApiKey}`);
@@ -58,7 +55,8 @@ let searchYelpApi = function(event) {
                 let phone = element.phone;
                 let rating = element.rating;
                 let price = element.price;
-                let location = element.location.display_address;
+                let location = element.location.address1;
+                //really want location.dispay_address for the whole thing but can't get the space to appear after the comma
                 let image = element.image_url;
                 let urlLink = element.url;
 
@@ -74,6 +72,9 @@ let searchYelpApi = function(event) {
                 
                 let locationEl = document.createElement("p");
                 locationEl.setAttribute("class", "address");
+                // let locationSpaced = location.replace(/,/g, ", ");
+                // let locationSpaced = location.split(",").join(", ");
+                // console.log(locationSpaced);
                 locationEl.textContent = "Location: " + location;
 
                 let ratingEl = document.createElement("a");
