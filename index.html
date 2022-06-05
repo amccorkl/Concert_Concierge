@@ -48,14 +48,27 @@
             <!-- City search portion// ***NEED TO ADD ANCHOR TAG TO SEARCH BTN TO DIRECT USERS TO RESULTS BELOW PARALLAX*** -->
             <h4 id="city-search-title">Where are you traveling?</h4>
             <form id="city-search-form" class="form">
-                <label for="city-name" class="form-label"></label>
+                <label for="city-name city-name" class="form-label"></label>
 
                 <input type="text" id="city-name" class="form-input" autofocus="true" placeholder="city name" />
-                <div class="center-align">
+                <!-- <div class="center-align">
                     <button class="btn amber darken-3 waves-effect waves-light" id="city-submit-btn">Submit<button>
-                </div>
+                </div> -->
 
             </form>
+
+            <div id="yelp-id">
+                <h4 id="Yelp">What kind of food are you hungry for tonight?</h4>
+                <form id="yelp-food-search" class="form">
+                    <label for="foodType" class="form-label"></label>
+                    <input type="text" id="foodType" class="form-input" autofocus="true" placeholder="What kind of food do you want?"/>
+    
+                </form>
+    
+            </div>
+            <div class="center-align">
+                <button class="btn amber darken-3 waves-effect waves-light" id="submit-btn">Submit<button>
+            </div>
             <!-- If we decide to add filters for music genres -->
             <!-- <div class="input-field">
 
@@ -133,13 +146,9 @@
             <div class="col s12 l6">
                 <div class="card large center results">
                     <div class="card-content center" style="border: 1px solid black">
-                        <span class="card-title center">Find a Restaurant or Bar</span>
-                            <form id="food-name-form" class="form">
-                                <label for="restaurant" class="form-label"></label>
-                                <input type="text" id="restaurant" class="form-input" autofocus="true" placeholder="type of food?">
-                                <button id="submit-btn" type="submit">Search</button>
-                            </form>
+                        <span class="card-title center">Your Food Options</span>
                     </div>
+                    <div id="restaurant-results"></div>
                 </div>
             </div>
         </div>

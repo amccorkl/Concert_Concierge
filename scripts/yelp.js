@@ -1,11 +1,9 @@
-let yelpContainerEl = document.getElementById("yelp-id");
+// let yelpContainerEl = document.getElementById("yelp-id");
 let yelpSearchForm = document.getElementById("yelp-food-search");
 let foodSearch = document.getElementById("foodType");
 let foodSearchResultsEl = document.getElementById("restaurant-results");
 let foodHistoryEl = document.getElementById("food-saved-results");
-let testCity = "Denver";
 let cityName = document.getElementById("city-name");
-let testFood = "Indian";
 let searchBtn = document.getElementById("submit-btn");
 
 
