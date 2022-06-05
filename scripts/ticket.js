@@ -1,9 +1,7 @@
 const ticketmasterEl = document.getElementById("ticketmaster-search");
-let searchSubmitBtn = document.getElementById("submit-btn");
-let citySearchForm = document.getElementById("city-search-form");
-let citySearchBtn = document.getElementById("city-submit-btn");
+// let searchSubmitBtn = document.getElementById("submit-btn");
+let citySearchBtn = document.getElementById("submit-btn");
 //search for events
-let testCity = "Denver";
 let cityName = document.getElementById("city-name");
 let date = document.getElementById("date");
 //event genre 
