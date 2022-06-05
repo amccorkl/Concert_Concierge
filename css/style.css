@@ -2,15 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* font-family: 'Special Elite', cursive; */
 }
-
-/* nav .brand-logo {
-    position: absolute;
-    color: #fff;
-    display: inline-block;
-    font-size: 2.1rem;
-    padding: 0;
-} */
 
 header {
     background-image: url(../images/musicfestival.jpg);
@@ -93,4 +86,10 @@ input#city-name.form-input {
 
 .results {
     overflow-y: scroll;
+}
+
+.page-footer {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

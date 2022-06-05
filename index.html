@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>Concert Concierge</title>
 </head>
@@ -19,22 +21,21 @@
     <header>
         <nav class="nav-wrapper black">
             <div class="container">
-                <a href="" class="brand-logo">Concert Concierge</a>
+                <a href="#" class="brand-logo">Concert Concierge</a>
                 <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#input-date-city">Start Planning Today</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
                 <ul class="sidenav" id="mobile-menu">
-                    <li><a href="">About</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#input-date-city">Start Planning Today</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-
     <section class="section container scrollspy" id="input-date-city">
         <div class="row">
             <!--Calendar input-->
@@ -45,7 +46,7 @@
                 <label for="date">Choose a date...</label>
             </div>
 
-            <!-- City search portion// ***NEED TO ADD ANCHOR TAG TO SEARCH BTN TO DIRECT USERS TO RESULTS BELOW PARALLAX*** -->
+            <!-- City search portion// -->
             <h4 id="city-search-title">Where are you traveling?</h4>
             <form id="city-search-form" class="form">
                 <label for="city-name city-name" class="form-label"></label>
@@ -53,6 +54,8 @@
                 <input type="text" id="city-name" class="form-input" autofocus="true" placeholder="city name" />
                 <!-- <div class="center-align">
                     <button class="btn amber darken-3 waves-effect waves-light" id="city-submit-btn">Submit<button>
+
+                </div>
                 </div> -->
 
             </form>
@@ -78,7 +81,7 @@
             <img src="./images/blacknwhite.jpg" alt="" class="responsive-img">
         </div>
     </div>
-    
+          
     <section class="section container scrollspy">
         <div class="row">
             <div class="col s12 l6">
@@ -106,6 +109,7 @@
             <img src="./images/fisheyepov.jpg" alt="" class="responsive-img">
         </div>
     </div>
+
     <section class="section container scrollspy" id="contact">
         <div class="row">
             <div class="col s12 l5">
@@ -136,24 +140,10 @@
     </section>
 
     <footer class="page-footer black">
-
-        <!-- <div class="container valign-center">
-        <div class="row">
-            <div class="col l4 offset-l2 s12">
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Sign up for our Newsletter</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Email</a></li>
-                </ul>
-            </div>
+        <div class="container center">
+            <p> © 2022 🎶CC Productions🎙️</p>
         </div>
-        </div> -->
-        <div class="footer-copyright center">
-            <div class="container">
-                <p> © 2022 🎶CC Productions🎙️</p>
-            </div>
     </footer>
-
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
@@ -171,11 +161,6 @@
                 yearRange: 1
             });
             $('.parallax').parallax();
-//             $(".carousel").carousel
-//             $('.carousel.carousel-slider').carousel({
-//                 fullWidth: true,
-//                 indicators: true
-//             });
             $('.scrollspy').scrollSpy();
 
         });
