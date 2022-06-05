@@ -36,6 +36,7 @@
             </div>
         </nav>
     </header>
+    
     <section class="section container scrollspy" id="input-date-city">
         <div class="row">
             <!--Calendar input-->
@@ -52,27 +53,21 @@
                 <label for="city-name city-name" class="form-label"></label>
 
                 <input type="text" id="city-name" class="form-input" autofocus="true" placeholder="city name" />
-                <!-- <div class="center-align">
-                    <button class="btn amber darken-3 waves-effect waves-light" id="city-submit-btn">Submit<button>
-
-                </div>
-                </div> -->
-
             </form>
 
+            <!-- Food search portion -->
             <div id="yelp-id">
                 <h4 id="Yelp">What kind of food are you hungry for tonight?</h4>
                 <form id="yelp-food-search" class="form">
                     <label for="foodType" class="form-label"></label>
                     <input type="text" id="foodType" class="form-input" autofocus="true" placeholder="What kind of food do you want?"/>
-    
                 </form>
-    
             </div>
+
             <div class="center-align">
                 <button class="btn amber darken-3 waves-effect waves-light" id="submit-btn">Submit<button>
             </div>
-                 
+            
         </div>
     </section>
 
@@ -81,7 +76,7 @@
             <img src="./images/blacknwhite.jpg" alt="" class="responsive-img">
         </div>
     </div>
-          
+
     <section class="section container scrollspy">
         <div class="row">
             <div class="col s12 l6">
@@ -154,7 +149,7 @@
     <script src="./scripts/yelp.js"></script>
     
     <script>
-        //   inorder to make the hamburger nav work, have to write this JS code with jquery//
+        //   inorder to make specifics within the framework function, have to write this JS code with jquery//
         $(document).ready(function () {
             $('.sidenav').sidenav();
             $('.datepicker').datepicker({
@@ -162,7 +157,6 @@
             });
             $('.parallax').parallax();
             $('.scrollspy').scrollSpy();
-
         });
     </script>
 
