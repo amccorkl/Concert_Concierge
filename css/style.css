@@ -113,9 +113,40 @@ input#foodType.form-input {
     }
 }
 
+.row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card .card-content .card-title {
+    margin-bottom: 0;
+}
+
+span.card-title.center {
+    font-size: 1.9rem;
+}
 
 .results {
     overflow-y: scroll;
+}
+
+input[type=email]:not(.browser-default):focus:not([readonly]){
+    border-bottom: 1px solid black;
+    box-shadow: none;
+}
+
+input[type=email]:not(.browser-default):focus:not([readonly])+label {
+    color: black;
+    border-bottom: black;
+    box-shadow: none;
+}
+
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: black;
+}
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid black;
+    box-shadow: none;
 }
 
 .page-footer {

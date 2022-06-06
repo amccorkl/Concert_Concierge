@@ -54,7 +54,6 @@
             <h4 id="city-search-title">Where are you traveling?</h4>
             <form id="city-search-form" class="form">
                 <label for="city-name city-name" class="form-label"></label>
-
                 <input type="text" id="city-name" class="form-input" autofocus="true" placeholder="city name" />
             </form>
 
@@ -130,7 +129,7 @@
                         <label for="message">Your Message</label>
                     </div>
                     <div class="input-field right">
-                        <button class="btn">Submit</button>
+                        <button class="btn amber darken-3 waves-effect waves-light">Submit</button>
                     </div>
                 </form>
             </div>
@@ -155,11 +154,7 @@
         //   inorder to make specifics within the framework function, have to write this JS code with jquery//
         $(document).ready(function () {
             $('.sidenav').sidenav();
-            $('.datepicker').datepicker({
-                yearRange: 1
-            });
             $('.parallax').parallax();
-            $('.scrollspy').scrollSpy();
         });
     </script>
 
