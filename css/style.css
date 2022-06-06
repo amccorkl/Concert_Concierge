@@ -10,7 +10,13 @@ header {
     background-color: #cccccc;
     min-height: 700px;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
+}
+
+nav a:hover {
+    color: #00aeff;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 670px){
@@ -19,15 +25,17 @@ header {
     }
 }
 
+#hero-text {
+    color: white;
+    font-family: 'Special Elite', cursive;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
 h4 {
     font-family: 'Special Elite', cursive;
     font-size: 1.8rem;
     line-height: 110%;
     margin: 1.52rem 0 0.912rem 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
 }
 
 .datepicker-date-display {
