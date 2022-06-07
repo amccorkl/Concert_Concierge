@@ -1,12 +1,10 @@
-// let yelpContainerEl = document.getElementById("yelp-id");
 let yelpSearchForm = document.getElementById("yelp-food-search");
 let foodSearch = document.getElementById("foodType");
 let foodSearchResultsEl = document.getElementById("restaurant-results");
 let foodHistoryEl = document.getElementById("food-saved-results");
-// let cityName = document.getElementById("city-name");
 let searchBtn = document.getElementById("submit-btn");
 
-
+// yelp api fetch and render on page
 let searchYelpApi = function(event) {
     event.preventDefault();
     console.log(event);
@@ -27,7 +25,6 @@ let searchYelpApi = function(event) {
     let myHeaders = new Headers();
     myHeaders.append("method", "GET");
     myHeaders.append("Authorization", `Bearer ${yelpApiKey}`);
-
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("mode", "no-cors");
     myHeaders.append("Access-Control-Allow-Origin", "*");
@@ -37,17 +34,12 @@ let searchYelpApi = function(event) {
         headers: myHeaders,
     })
         .then(function(response){
-            console.log({response});
             return response.json();
         })
         .then(function(data) {
-            // renderRestaurants(data);
-            console.log(data);
-
+            
             let cardInfo = data.businesses;
-                console.log({cardInfo}); 
-
-
+                
             for(let i = 0; i < cardInfo.length; i++) {
                 let element = cardInfo[i];
 
@@ -56,7 +48,6 @@ let searchYelpApi = function(event) {
                 let rating = element.rating;
                 let price = element.price;
                 let location = element.location.address1;
-                //really want location.dispay_address for the whole thing but can't get the space to appear after the comma
                 let image = element.image_url;
                 let urlLink = element.url;
 
@@ -72,22 +63,18 @@ let searchYelpApi = function(event) {
                 
                 let locationEl = document.createElement("p");
                 locationEl.setAttribute("class", "address");
-                // let locationSpaced = location.replace(/,/g, ", ");
-                // let locationSpaced = location.split(", ").join(", ");
-                // console.log(locationSpaced);
                 locationEl.textContent = "Location: " + location;
 
                 let ratingEl = document.createElement("p");
                 ratingEl.textContent = "Rating: " + rating;
-                // ratingEl.href = (rating);
 
                 let priceEl = document.createElement("p");
                 priceEl.textContent = "Price: " + price;                  
                 
-                let phoneEl = document.createElement("a");
+                let phoneEl = document.createElement("h6");
                 phoneEl.setAttribute("class", "phone");
-                phoneEl.textContent = "     Contact: " + phone + "   ";
-                phoneEl.href = (phone);
+                phoneEl.textContent = "Contact: " + phone;
+                // phoneEl.href = (phone);
             
                 let imageEl = document.createElement("img");
                 imageEl.setAttribute("class", "yelp-image");
@@ -97,18 +84,14 @@ let searchYelpApi = function(event) {
 
                 let urlEl = document.createElement("a");
                 urlEl.setAttribute("target", "_blank");
-                let text = document.createTextNode("       -----Click here for more information ");
+                let text = document.createTextNode("Click here for more information ");
                 urlEl.append(text);
                 urlEl.href = (urlLink);
                 
-                yelpDiv.append(restaurantNameEl, ratingEl, priceEl, phoneEl, urlEl, locationEl, imageEl);
+                yelpDiv.append(restaurantNameEl, ratingEl, priceEl, urlEl, locationEl, phoneEl, imageEl);
                 foodSearchResultsEl.append(yelpDiv);
-
             }
-            
         });
-        
-
 }
  
 searchBtn.addEventListener("click", searchYelpApi);       
