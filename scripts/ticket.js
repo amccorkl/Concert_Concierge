@@ -105,12 +105,12 @@ let ticketMasterSearch = function (event) {
 
 citySearchBtn.addEventListener("click", ticketMasterSearch);
 
-
-
 $(document).ready(function () {
     $('.datepicker').datepicker({
         yearRange: 1
     });
-    
+    $('.sidenav').sidenav();
+    $('.parallax').parallax();
+
 });
 
