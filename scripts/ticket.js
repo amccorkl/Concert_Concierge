@@ -8,10 +8,12 @@ let date = document.getElementById("date");
 let eventClassification = "Music";
 let keyword = document.getElementById("keyword");
 let savedViewsDiv = document.getElementById("saved-music-views");
-// let savedMusicArr =  JSON.parse(localStorage.getItem("id")) || [];
+// let savedMusicArr =  JSON.parse(localStorage.getItem(savedMusic)) || [];
 
 
 const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
+
+// get saved music event data from localStorage
 
 // let showSavedMusic = function(savedMusicArr) {
 //     for(let i = 0; i < savedMusicArr.length; i++) {
@@ -48,12 +50,6 @@ let ticketMasterSearch = function (event) {
     let dateMoment = moment(dateInput).utc().format();
     console.log({dateMoment});
     date.value = "";
-
-    // let keywordInput = keyword.value;
-    // if (keywordInput) {
-    //     keywordInput = `&keyword${keywordInput}`;
-    //     console.log(keywordInput);
-    // }
         
     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&startDateTime=${dateMoment}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
     console.log(ticketMasterRequestUrl);
@@ -67,10 +63,7 @@ let ticketMasterSearch = function (event) {
         .then(function(data) {
             console.log(data);
             // showSavedMusic(data);
-            
-            let ticketMasterEl = document.createElement('div');
-
-    
+               
             //shorted api variable for the info  
             let eventList = data._embedded.events;
 
@@ -86,9 +79,15 @@ let ticketMasterSearch = function (event) {
                 let eventUrl = event.url; 
                 let eventVenue = event._embedded.venues[0].name;
                 let id = event.id;   
-                let eventId = localStorage.setItem("id", id);           
+
+                let eventStorage = {
+                    name: eventName,
+                    id: id
+                };
                 
-                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event",  "link: ", eventUrl, "venue: ", eventVenue, "id: ", eventId);
+                localStorage.setItem("eventStorage", JSON.stringify(eventStorage));           
+                
+                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event",  "link: ", eventUrl, "venue: ", eventVenue, "id: ", id);
                 
                 //get the UI element that the ticketMaster info will go into
                 let ticketMasterDiv = document.createElement('div');
@@ -128,29 +127,15 @@ let ticketMasterSearch = function (event) {
                 ticketmasterEl.append(ticketMasterDiv);
                 }
         }) 
+
 }
 
-// let saveMusicViews = function(id) {
-//     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events?attractionId=${id}&apikey=${ticketMasterApiKey}`
-//     console.log(ticketMasterRequestUrl);
-//     fetch(ticketMasterRequestUrl)
-//     .then(function(response) {
-//         return response.json();
-//     })
-//     .then(function(data) {
-//         showSavedMusic(data);
-//         console.log(data);
-//     })
-//     .catch((error) => {
-//         console.log(error);
-//     });
-    
-// }
+
 
 
 
 citySearchBtn.addEventListener("click", ticketMasterSearch);
-
+// showSavedMusic(savedMusic);
 
 
 

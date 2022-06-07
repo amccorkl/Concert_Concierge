@@ -86,7 +86,7 @@ let searchYelpApi = function(event) {
                 
                 let phoneEl = document.createElement("a");
                 phoneEl.setAttribute("class", "phone");
-                phoneEl.textContent = "     Contact: " + phone;
+                phoneEl.textContent = "     Contact: " + phone + "   ";
                 phoneEl.href = (phone);
             
                 let imageEl = document.createElement("img");
@@ -96,11 +96,11 @@ let searchYelpApi = function(event) {
                 imageEl.alt = "photo of restaurant logo or a food dish";
 
                 let urlEl = document.createElement("a");
-                let text = document.createTextNode("       Click here for more information");
+                let text = document.createTextNode("       Click here for more information ");
                 urlEl.append(text);
                 urlEl.href = (urlLink);
                 
-                yelpDiv.append(restaurantNameEl, ratingEl, priceEl, phoneEl, locationEl, urlEl, imageEl);
+                yelpDiv.append(restaurantNameEl, ratingEl, priceEl, phoneEl, urlEl, locationEl, imageEl);
                 foodSearchResultsEl.append(yelpDiv);
 
             }
