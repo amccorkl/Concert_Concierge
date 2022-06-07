@@ -12,7 +12,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>Concert Concierge</title>
 </head>
@@ -54,8 +54,7 @@
             <h4 id="city-search-title">Where are you traveling?</h4>
             <form id="city-search-form" class="form">
                 <label for="city-name city-name" class="form-label"></label>
-
-                <input type="text" id="city-name" class="form-input" autofocus="true" placeholder="city name" />
+                <input type="text" id="city-name" class="form-input" placeholder="city name" />
             </form>
 
             <!-- Food search portion -->
@@ -63,12 +62,12 @@
                 <h4 id="Yelp">What kind of food are you hungry for tonight?</h4>
                 <form id="yelp-food-search" class="form">
                     <label for="foodType" class="form-label"></label>
-                    <input type="text" id="foodType" class="form-input" autofocus="true" placeholder="What kind of food do you want?"/>
+                    <input type="text" id="foodType" class="form-input" placeholder="What kind of food do you want?"/>
                 </form>
             </div>
-
+<!-- fixed the submit btn -->
             <div class="center-align">
-                <button class="btn amber darken-3 waves-effect waves-light" id="submit-btn">Submit<button>
+                <button class="btn amber darken-3 waves-effect waves-light" id="submit-btn">Submit</button>
             </div>
             
         </div>
@@ -83,9 +82,11 @@
     <section class="container">
         <div class="row">
             <div class="col s12 l6">
-                <div class="card large center results">
-                    <div class="card-content center" style="border: 1px solid black">
-                        <span class="card-title center">Your Music Options<span>                      
+                <div class="card large center results">                                     
+
+                    <div class="card-content center">
+                        <span class="card-title center">Your Music</span>                    
+
                     </div>
                     <div id="saved-music-views"></div>
                     <div id="ticketmaster-search"></div>
@@ -94,7 +95,7 @@
 
             <div class="col s12 l6">
                 <div class="card large center results">
-                    <div class="card-content center" style="border: 1px solid black">
+                    <div class="card-content center">
                         <span class="card-title center">Your Food Options</span>
                     </div>
                     <div id="restaurant-results"></div>
@@ -113,10 +114,7 @@
         <div class="row">
             <div class="col s12 l5">
                 <h5 class="">Get in Touch</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit
-                    nec, tincidunt orci.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit
-                    nec, tincidunt orci.</p>
+        
             </div>
             <div class="col s12 l5 offset-l2">
                 <form>
@@ -131,7 +129,7 @@
                         <label for="message">Your Message</label>
                     </div>
                     <div class="input-field right">
-                        <button class="btn">Submit</button>
+                        <button class="btn amber darken-3 waves-effect waves-light">Submit</button>
                     </div>
                 </form>
             </div>
@@ -146,7 +144,6 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./scripts/ticket.js"></script>
@@ -156,11 +153,7 @@
         //   inorder to make specifics within the framework function, have to write this JS code with jquery//
         $(document).ready(function () {
             $('.sidenav').sidenav();
-            $('.datepicker').datepicker({
-                yearRange: 1
-            });
             $('.parallax').parallax();
-            $('.scrollspy').scrollSpy();
         });
     </script>
 
