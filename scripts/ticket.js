@@ -58,7 +58,7 @@ let ticketMasterSearch = function (event) {
     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&startDateTime=${dateMoment}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
     console.log(ticketMasterRequestUrl);
     //${keywordInput}
- 
+
     
     fetch(ticketMasterRequestUrl)
         .then(function (response) {
@@ -151,12 +151,7 @@ let ticketMasterSearch = function (event) {
 
 citySearchBtn.addEventListener("click", ticketMasterSearch);
 
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> e324d9b22953ed28578019d107037a273d6d424a
 $(document).ready(function () {
     $('.datepicker').datepicker({
         yearRange: 1
