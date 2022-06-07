@@ -42,6 +42,10 @@ input, textarea {
     font-family: 'Merriweather', serif;
 }
 
+.datepicker-controls .select-month input {
+    width: 90px;
+}
+
 .datepicker-date-display {
     background-color: #ff8f00;
 }
