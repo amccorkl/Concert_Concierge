@@ -8,11 +8,16 @@ let date = document.getElementById("date");
 let eventClassification = "Music";
 let keyword = document.getElementById("keyword");
 let savedViewsDiv = document.getElementById("saved-music-views");
-// let savedMusicArr =  JSON.parse(localStorage.getItem(savedMusic)) || [];
+let hideShow = document.getElementById("hide-div");
 let dateArr = [];
 
 const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
 
+function hideApiDivs() {
+    
+    hideShow.setAttribute("style", "display: none")
+
+}
 
 let ticketMasterSearch = function (event) {
     event.preventDefault();
@@ -33,7 +38,7 @@ let ticketMasterSearch = function (event) {
     let tomorrow = splitDate[0].split(" ")[0] + " " + afterDate + "," + splitDate[1];
     console.log(yesterday, tomorrow);
 
-    //use moment to reformat datepicker into TM's format for parsing
+    //use moment to reformat datepicker into TM's format for parsing and to possible use these to move to the next date or prior one with music events
     let dateMoment = moment(dateInput).utc().format();
     let dateMomentYesterday = moment(yesterday).utc().format();
     let dateMomenttomorrow = moment(tomorrow).utc().format();
@@ -129,6 +134,10 @@ let ticketMasterSearch = function (event) {
 // })
 
 citySearchBtn.addEventListener("click", ticketMasterSearch);
+citySearchBtn.addEventListener("click", function () {
+    hideShow.setAttribute("style", "display:block");
+})
+hideApiDivs();
 
 
 $(document).ready(function () {
