@@ -68,7 +68,7 @@ let searchYelpApi = function(event) {
                 yelpDiv.setAttribute("class", "yelp-div");
 
                 let restaurantNameEl = document.createElement("h4");
-                restaurantNameEl.textContent = "Name: " + restaurantName;  
+                restaurantNameEl.textContent = restaurantName;  
                 
                 let locationEl = document.createElement("p");
                 locationEl.setAttribute("class", "address");
@@ -85,20 +85,22 @@ let searchYelpApi = function(event) {
                 priceEl.textContent = "Price: " + price;                  
                 
                 let phoneEl = document.createElement("a");
-                phoneEl.textContent = "Contact: " + phone;
+                phoneEl.setAttribute("class", "phone");
+                phoneEl.textContent = "     Contact: " + phone;
                 phoneEl.href = (phone);
             
                 let imageEl = document.createElement("img");
+                imageEl.setAttribute("class", "yelp-image");
                 imageEl.setAttribute("src", image);
                 imageEl.setAttribute("style", "width: 50%; height: 50%;"); 
                 imageEl.alt = "photo of restaurant logo or a food dish";
 
                 let urlEl = document.createElement("a");
-                let text = document.createTextNode(" Click here for more information");
+                let text = document.createTextNode("       Click here for more information");
                 urlEl.append(text);
                 urlEl.href = (urlLink);
                 
-                yelpDiv.append(restaurantNameEl, ratingEl, priceEl, imageEl, phoneEl, locationEl, urlEl);
+                yelpDiv.append(restaurantNameEl, ratingEl, priceEl, phoneEl, locationEl, urlEl, imageEl);
                 foodSearchResultsEl.append(yelpDiv);
 
             }
