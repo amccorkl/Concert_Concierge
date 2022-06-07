@@ -11,7 +11,7 @@ let searchYelpApi = function(event) {
     event.preventDefault();
     console.log(event);
 
-    let cityInput = JSON.parse(localStorage.getItem("cityInput"));   
+    let cityInput = JSON.parse(localStorage.getItem("city"));   
 
     let foodInput = foodSearch.value;
     console.log(foodInput);
@@ -77,7 +77,7 @@ let searchYelpApi = function(event) {
                 // console.log(locationSpaced);
                 locationEl.textContent = "Location: " + location;
 
-                let ratingEl = document.createElement("a");
+                let ratingEl = document.createElement("p");
                 ratingEl.textContent = "Rating: " + rating;
                 // ratingEl.href = (rating);
 
