@@ -73,7 +73,7 @@ let searchYelpApi = function(event) {
                 let locationEl = document.createElement("p");
                 locationEl.setAttribute("class", "address");
                 // let locationSpaced = location.replace(/,/g, ", ");
-                // let locationSpaced = location.split(",").join(", ");
+                // let locationSpaced = location.split(", ").join(", ");
                 // console.log(locationSpaced);
                 locationEl.textContent = "Location: " + location;
 
@@ -96,7 +96,8 @@ let searchYelpApi = function(event) {
                 imageEl.alt = "photo of restaurant logo or a food dish";
 
                 let urlEl = document.createElement("a");
-                let text = document.createTextNode("       Click here for more information ");
+                urlEl.setAttribute("target", "_blank");
+                let text = document.createTextNode("       -----Click here for more information ");
                 urlEl.append(text);
                 urlEl.href = (urlLink);
                 
