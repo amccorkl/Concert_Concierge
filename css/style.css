@@ -117,6 +117,10 @@ input#foodType.form-input {
     }
 }
 
+/* #hide-div {
+    display: none;
+} */
+
 .row {
     margin-top: 10px;
     margin-bottom: 10px;
