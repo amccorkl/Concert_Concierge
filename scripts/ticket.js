@@ -3,15 +3,36 @@ const ticketmasterEl = document.getElementById("ticketmaster-search");
 let citySearchBtn = document.getElementById("submit-btn");
 //search for events
 let cityName = document.getElementById("city-name");
-
 let date = document.getElementById("date");
 //event genre 
 let eventClassification = "Music";
+let keyword = document.getElementById("keyword");
+let savedViewsDiv = document.getElementById("saved-music-views");
+// let savedMusicArr =  JSON.parse(localStorage.getItem("id")) || [];
+
 
 const ticketMasterApiKey = "n98GKJ3ZAswvAkjGcvK9zMAoAj0ppMD8";
 
+// let showSavedMusic = function(savedMusicArr) {
+//     for(let i = 0; i < savedMusicArr.length; i++) {
+//         let musicGroup = savedMusicArr[i];
+//         console.log(musicGroup);
+        
+//     //create a button for each event viewed
+//     let musicGroupBtn = document.createElement("button");
+//     musicGroupBtn.setAttribute("class", "music-btn");
+//     musicGroupBtn.setAttribute("value", musicGroup);
+//     musicGroupBtn.textContent = musicGroup;
 
+//     savedViewsDiv.append(musicGroupBtn);
 
+//         musicGroupBtn.addEventListener("click", function() {
+//             console.log(this);
+//             ticketMasterSearch(this.value);
+//         })
+
+//     }
+// }
 
 let ticketMasterSearch = function (event) {
     event.preventDefault();
@@ -19,19 +40,24 @@ let ticketMasterSearch = function (event) {
     
     let cityInput = cityName.value;
     console.log(cityInput);
-    localStorage.setItem("cityInput", JSON.stringify(cityInput));
+    localStorage.setItem("city", JSON.stringify(cityInput));
     cityName.value = "";
 
     let dateInput = date.value;
     //use moment to reformat datepicker into TM's format for parsing
     let dateMoment = moment(dateInput).utc().format();
     console.log({dateMoment});
-    
-    //clear the input field
     date.value = "";
+
+    // let keywordInput = keyword.value;
+    // if (keywordInput) {
+    //     keywordInput = `&keyword${keywordInput}`;
+    //     console.log(keywordInput);
+    // }
         
     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events.json?city=${cityInput}&classificationName=${eventClassification}&startDateTime=${dateMoment}&radius=30&sort=date,name,asc&includeSpellcheck&apikey=${ticketMasterApiKey}`
     console.log(ticketMasterRequestUrl);
+    //${keywordInput}
  
     
     fetch(ticketMasterRequestUrl)
@@ -40,6 +66,10 @@ let ticketMasterSearch = function (event) {
         })
         .then(function(data) {
             console.log(data);
+            // showSavedMusic(data);
+            
+            let ticketMasterEl = document.createElement('div');
+
     
             //shorted api variable for the info  
             let eventList = data._embedded.events;
@@ -51,13 +81,14 @@ let ticketMasterSearch = function (event) {
                 let eventDate = event.dates.start.localDate;
                 eventDate = moment(eventDate, "YYYY-MM-DD").format("MMMM Do, YYYY");
                 let eventTime = event.dates.start.localTime;
-                eventTime = moment(eventTime, "HH:mm").format("hh:mm A");
-                                
+                eventTime = moment(eventTime, "HH:mm").format("hh:mm A");         
                 let eventImages = event.images[0].url; 
                 let eventUrl = event.url; 
-                let eventVenue = event._embedded.venues[0].name;               
+                let eventVenue = event._embedded.venues[0].name;
+                let id = event.id;   
+                let eventId = localStorage.setItem("id", id);           
                 
-                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event",  "link: ", eventUrl, "venue: ", eventVenue);
+                console.log("event: ", eventName, "image: ", eventImages,  "date: ", eventDate, "time: ", eventTime,  "event",  "link: ", eventUrl, "venue: ", eventVenue, "id: ", eventId);
                 
                 //get the UI element that the ticketMaster info will go into
                 let ticketMasterDiv = document.createElement('div');
@@ -96,14 +127,30 @@ let ticketMasterSearch = function (event) {
                 ticketMasterDiv.append(eventTitle, dateEl, timeEl, urlEl, venueEl, imagesEl);
                 ticketmasterEl.append(ticketMasterDiv);
                 }
-        })
-        // .catch((error) => {
-        //     console.log(error);
-        //     alert("Please check your city spelling");
-        // });
+        }) 
 }
 
+// let saveMusicViews = function(id) {
+//     let ticketMasterRequestUrl = `https://app.ticketmaster.com/discovery/v2/events?attractionId=${id}&apikey=${ticketMasterApiKey}`
+//     console.log(ticketMasterRequestUrl);
+//     fetch(ticketMasterRequestUrl)
+//     .then(function(response) {
+//         return response.json();
+//     })
+//     .then(function(data) {
+//         showSavedMusic(data);
+//         console.log(data);
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     });
+    
+// }
+
+
+
 citySearchBtn.addEventListener("click", ticketMasterSearch);
+
 
 
 
