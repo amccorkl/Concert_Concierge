@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    font-family: 'Merriweather', serif;
 }
 
 header {
@@ -16,7 +16,7 @@ header {
 
 nav a:hover {
     color: #00aeff;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 @media screen and (max-width: 670px){
@@ -31,16 +31,21 @@ nav a:hover {
     text-shadow: black 0.1em 0.1em 0.2em
 }
 
-h4 {
+h4, h5 {
     font-family: 'Special Elite', cursive;
     font-size: 1.8rem;
     line-height: 110%;
     margin: 1.52rem 0 0.912rem 0;
 }
 
+input, textarea {
+    font-family: 'Merriweather', serif;
+}
+
 .datepicker-date-display {
     background-color: #ff8f00;
 }
+
 .datepicker-table td.is-today {
     color:#ff8f00;
 }
@@ -95,7 +100,6 @@ input#foodType.form-input {
     box-shadow: none;
 }
 
-
 @media screen and (max-width: 780px){
     .parallax {
         min-height: 500px;
@@ -122,8 +126,16 @@ input#foodType.form-input {
     margin-bottom: 0;
 }
 
+.card-content {
+    background-color: black;
+    border: 1px solid black;
+}
+
 span.card-title.center {
     font-size: 1.9rem;
+    color: white;
+    font-family: 'Special Elite', cursive;
+    text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 .results {
