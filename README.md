@@ -19,3 +19,5 @@ TECHNOLOGY:
     -JQuery
     -TicketMaster API
     -Yelp! API
+
+![](images/concert_concierge.png)
