@@ -69,7 +69,10 @@ let searchYelpApi = function(event) {
                 ratingEl.textContent = "Rating: " + rating;
 
                 let priceEl = document.createElement("p");
-                priceEl.textContent = "Price: " + price;                  
+                priceEl.textContent = "Price: " + price;
+                if (price === undefined){
+                    priceEl.textContent = "";
+                }                  
                 
                 let phoneEl = document.createElement("h6");
                 phoneEl.setAttribute("class", "phone");
