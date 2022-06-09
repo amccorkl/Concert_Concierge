@@ -19,3 +19,7 @@ TECHNOLOGY:
     -JQuery
     -TicketMaster API
     -Yelp! API
+
+LINKS:
+    -GitHub Repository: https://github.com/amccorkl/Concert_Concierge/
+    -Deployed: https://amccorkl.github.io/Concert_Concierge/
