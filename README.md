@@ -1,29 +1,42 @@
-CONCERT CONCIERGE
+# Concert Concierge
 
-DESCRIPTION:
-    For this project we wanted to create an application for music lovers where they can plan their perfect concert getaway and enjoy some local cuisine. They will be able to input their desired travel city and date, as well as type in what kind of food they are looking for. Then, TicketMaster will provide a list of up to 20 concerts happening in the selected city on that specific date along with a link to purchase tickets. Along with the list of concerts, there will also be a list of up to 20 bars/restaurants in that area provided by Yelp! with a link to additional information on each listing.
+## Description
 
-USER STORY:
-    AS a concert goer
-    I WANT to find out what concerts are happening in a specific city and date I've selected, along with local food/beverages
-    SO THAT I can start planning my next music vacation
+Concert Concierge is an interactive application built for users that are looking to plan a getaway that revolves around local music and cuisine. The user will choose the date(s) they wish to travel, as well as the city and type of _food*_, then press submit. The 2 side-server API's(TicketMaster & Yelp!) will populate the shows in 'x' city on the left and your food options on the right. 
 
-ACCEPTANCE CRITERIA:
-    GIVEN I am a user that wants to plan a concert experience
-    WHEN I select a specific date and location, and enter my desired type of food/beverage
-    THEN I will find a list of concerts in the selected city and date, along with a list of bars and restaurants in that area
-
-TECHNOLOGY:
-    -Materialize framework
-    -Moment.js
-    -JQuery
-    -TicketMaster API
-    -Yelp! API
+_*Currently we have the Yelp! API turned off due to limited free query submission._
 
 
-LINKS:
-    -GitHub Repository: https://github.com/amccorkl/Concert_Concierge/
-    -Deployed: https://amccorkl.github.io/Concert_Concierge/
+## Languages & Technologies
 
-![](images/concert_concierge.png)
+- JavaScript
+- HTML/CSS
+- Materialize framework
+- Moment.js
+- JQuery
+- TicketMaster API
+- Yelp! API
+- GH pages for deployment
 
+## Contributing Guidelines
+
+Contributions help our open source community to continue to evolve, and any contributions are greatly appreciated. If you have a suggestion that would improve this code please follow the directions below. I require that any and all changes adhere to the Code of Conduct outlined in the [Contributor Covenant](https://www.contributor-covenant.org/).
+
+## Tests
+
+At this time, no tests have been documented for this application.
+
+## Mockup
+
+![Screenshot of the deployed application](./mockupimage.png)
+
+## Deployed Link
+
+[Click Here to view appliation.](https://lindsey-lansford.github.io/Concert_Concierge/)
+
+## Questions
+
+Please reach out with any questions you may have about this application.
+
+* :octocat: GitHub: [@lindsey-lansford](https://github.com/lindsey-lansford)
+* :envelope: Email: [lindsey.lansford@gmail.com](mailto:lindsey.lansford@gmail.com)
